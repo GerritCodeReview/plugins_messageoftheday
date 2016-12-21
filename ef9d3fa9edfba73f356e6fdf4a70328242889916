@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fa132f0f_f7dbda07",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2016-12-21T08:19:52Z",
+      "side": 1,
+      "message": "No, not until now. I searched a few times through the plugin projects looking for something containing \"message\", \"msg\", \"day\", etc.. \nI even checked with another contributor who also wasn\u0027t aware of such a plugin :-)\n\nAnyway, I looked at the motd plugin. It has that \"subnet\" feature which is cool.\nI don\u0027t really like how it stores the message(s), inside the motd.config file, mixing the git-config syntax with HTML syntax and making it harder to test/render a message (one needs to first extract it in a separated file and then open it in a web browser).\nSupporting of the expiration date is also important IMHO. If I announce a specific event (downtime, request an action from users until specific date etc..) then I want to be sure that the message is gone after this date.\n\nIt probably doesn\u0027t make much sense to have two message-of-the-day plugins. Let me try to merge the features of this plugin into the motd plugin.",
+      "parentUuid": "1a1ba32a_d8e091b3",
+      "revId": "ef9d3fa9edfba73f356e6fdf4a70328242889916",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa132f0f_17a1367b",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/MessageOfTheDayImpl.java",
         "patchSetId": 2
