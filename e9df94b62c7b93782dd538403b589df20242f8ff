@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e1211154_390c27fa",
+        "filename": ".gitignore",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-04-25T13:11:13Z",
+      "side": 1,
+      "message": "some folders have trailing slash and some not. This should be aligned.",
+      "revId": "e9df94b62c7b93782dd538403b589df20242f8ff",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
