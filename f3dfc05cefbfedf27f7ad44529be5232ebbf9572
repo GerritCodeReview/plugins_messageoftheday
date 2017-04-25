@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "279d8aaa_5d77d955",
+        "filename": ".gitignore",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-04-25T10:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbee16ce_a13ec585",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 7
+      },
+      "revId": "f3dfc05cefbfedf27f7ad44529be5232ebbf9572",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0a55805_321a865a",
         "filename": ".gitignore",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2017-04-25T10:47:42Z",
       "side": 1,
       "message": "shall we just exclude the entire settings folder instead:\n\n/.settings",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 37
+      },
+      "revId": "f3dfc05cefbfedf27f7ad44529be5232ebbf9572",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ea9c99d_2418ba85",
+        "filename": ".gitignore",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-04-25T10:57:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0a55805_321a865a",
       "range": {
         "startLine": 4,
         "startChar": 0,
