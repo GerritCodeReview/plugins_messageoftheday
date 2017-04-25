@@ -64,7 +64,7 @@ class MessageOfTheDayImpl extends MessageOfTheDay {
     }
 
     if (Strings.isNullOrEmpty(expiresAt)) {
-      log.warn("expiresAt not defined, not message will be shown");
+      log.warn("expiresAt not defined, no message will be shown");
       return null;
     }
 
