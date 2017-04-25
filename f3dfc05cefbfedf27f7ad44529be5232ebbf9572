@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dbee16ce_a13ec585",
+        "filename": ".gitignore",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2017-04-25T10:47:42Z",
+      "side": 1,
+      "message": "not needed, no maven build in this plugin",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 7
+      },
+      "revId": "f3dfc05cefbfedf27f7ad44529be5232ebbf9572",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0a55805_321a865a",
+        "filename": ".gitignore",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2017-04-25T10:47:42Z",
+      "side": 1,
+      "message": "shall we just exclude the entire settings folder instead:\n\n/.settings",
+      "range": {
+        "startLine": 4,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 37
+      },
+      "revId": "f3dfc05cefbfedf27f7ad44529be5232ebbf9572",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "984d481f_3d4e8f4a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/MessageOfTheDayImpl.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1012987
+      },
+      "writtenOn": "2017-04-25T10:47:42Z",
+      "side": 1,
+      "message": "it looks like SimpleDateFormat is not thread safe, see https://gerrit-review.googlesource.com/#/c/104310/",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 78
+      },
+      "revId": "f3dfc05cefbfedf27f7ad44529be5232ebbf9572",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    }
+  ]
+}
