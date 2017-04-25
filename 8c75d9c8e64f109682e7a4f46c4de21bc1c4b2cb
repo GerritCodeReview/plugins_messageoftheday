@@ -22,6 +22,30 @@
       "revId": "8c75d9c8e64f109682e7a4f46c4de21bc1c4b2cb",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f313e38f_4d634fdc",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/MessageOfTheDayImpl.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-04-25T12:32:43Z",
+      "side": 1,
+      "message": "I actually fixed that in PS4. However, in the UI I still had PS3 open and I fixed a typo from the UI. This created PS5 out of PS3 and my fix from PS4 was lost.\n\nDone.",
+      "parentUuid": "e7a52288_40413078",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 43,
+        "endChar": 78
+      },
+      "revId": "8c75d9c8e64f109682e7a4f46c4de21bc1c4b2cb",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     }
   ]
 }
