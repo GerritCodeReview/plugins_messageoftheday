@@ -67,7 +67,7 @@ class MessageOfTheDayImpl extends MessageOfTheDay {
       return null;
     }
 
-    if (today().compareTo(expiresAt) > 0) {
+    if (now().compareTo(expiresAt) > 0) {
       return null;
     }
 
@@ -93,7 +93,7 @@ class MessageOfTheDayImpl extends MessageOfTheDay {
     }
   }
 
-  private static String today() {
-    return new SimpleDateFormat("YYYYMMdd").format(new Date());
+  private static String now() {
+    return new SimpleDateFormat("YYYYMMdd:HHmm").format(new Date());
   }
 }

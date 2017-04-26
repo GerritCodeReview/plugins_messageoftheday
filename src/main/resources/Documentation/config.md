@@ -11,18 +11,18 @@ be reloaded for the configuration change to take effect.
 ```
   [message]
     id = hello
-    expiresAt = 20161209
+    expiresAt = 20161209:1730
 ```
 
 message.id
 :	The ID of the current message of the day.
 
 message.expiresAt
-:	Expiration date for the current message of the day. The message will be
-	displayed up to and including that date. The message will not be displayed
-	any more after that date. This field is required. If not set, the message
+:	Expiration date:time for the current message of the day. The message will be
+	displayed up to and including that date:time. The message will not be displayed
+	any more after that date:time. This field is required. If not set, the message
 	will not be displayed.
-	The format of this field is `YYYYMMdd`.
+	The format of this field is `YYYYMMdd:HHmm`.
 
 ## Message content and location
 
