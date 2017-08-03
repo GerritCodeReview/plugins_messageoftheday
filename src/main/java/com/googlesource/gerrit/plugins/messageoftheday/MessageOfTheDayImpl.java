@@ -16,6 +16,7 @@ package com.googlesource.gerrit.plugins.messageoftheday;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Strings;
 import com.google.gerrit.extensions.annotations.PluginData;
 import com.google.gerrit.extensions.annotations.PluginName;
@@ -41,6 +42,7 @@ class MessageOfTheDayImpl extends MessageOfTheDay {
 
   private final File data;
   private final String id;
+  private final String startsAt;
   private final String expiresAt;
   private final String msg;
 
@@ -52,6 +54,8 @@ class MessageOfTheDayImpl extends MessageOfTheDay {
     this.data = data;
     Config cfg = configFactory.getGlobalPluginConfig(myName);
     id = cfg.getString("message", null, "id");
+    String configuredStartsAt = Strings.emptyToNull(cfg.getString("message", null, "startsAt"));
+    startsAt = MoreObjects.firstNonNull(configuredStartsAt, now());
     expiresAt = cfg.getString("message", null, "expiresAt");
     msg = message();
   }
@@ -67,7 +71,7 @@ class MessageOfTheDayImpl extends MessageOfTheDay {
       return null;
     }
 
-    if (now().compareTo(expiresAt) > 0) {
+    if (now().compareTo(startsAt) < 0 || now().compareTo(expiresAt) > 0) {
       return null;
     }
 
