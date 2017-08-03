@@ -94,6 +94,6 @@ class MessageOfTheDayImpl extends MessageOfTheDay {
   }
 
   private static String now() {
-    return new SimpleDateFormat("YYYYMMdd:HHmm").format(new Date());
+    return new SimpleDateFormat("yyyyMMdd:HHmm").format(new Date());
   }
 }

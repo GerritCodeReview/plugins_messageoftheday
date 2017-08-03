@@ -22,7 +22,7 @@ message.expiresAt
 	displayed up to and including that date:time. The message will not be displayed
 	any more after that date:time. This field is required. If not set, the message
 	will not be displayed.
-	The format of this field is `YYYYMMdd:HHmm`.
+	The format of this field is `yyyyMMdd:HHmm`.
 
 ## Message content and location
 
