@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "7a2f924f_21dcd83b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/MessageOfTheDayImpl.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-09-19T23:28:09Z",
+      "side": 1,
+      "message": "nit: unnecessary parentheses",
+      "range": {
+        "startLine": 57,
+        "startChar": 15,
+        "endLine": 57,
+        "endChar": 43
+      },
+      "revId": "dff82258a5c2a34cb8d0105b24d111712b29a99d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fa928def_81b57b72",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
@@ -16,6 +39,29 @@
       "revId": "dff82258a5c2a34cb8d0105b24d111712b29a99d",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "490b3042_168ad4ab",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1011123
+      },
+      "writtenOn": "2017-09-19T23:28:09Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 23,
+        "startChar": 11,
+        "endLine": 23,
+        "endChar": 13
+      },
+      "revId": "dff82258a5c2a34cb8d0105b24d111712b29a99d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": false
     },
     {
       "key": {
