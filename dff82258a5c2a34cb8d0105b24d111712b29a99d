@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3968e43e_87285a49",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2017-09-19T21:34:57Z",
+      "side": 1,
+      "message": "nit: indent with TAB, follow the style of other lines in this block",
+      "revId": "dff82258a5c2a34cb8d0105b24d111712b29a99d",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153",
+      "unresolved": true
+    }
+  ]
+}
