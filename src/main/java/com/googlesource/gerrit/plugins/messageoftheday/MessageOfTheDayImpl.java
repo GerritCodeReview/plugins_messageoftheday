@@ -24,17 +24,15 @@ import com.google.gerrit.extensions.systemstatus.MessageOfTheDay;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-
-import org.eclipse.jgit.lib.Config;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import org.eclipse.jgit.lib.Config;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Singleton
 class MessageOfTheDayImpl extends MessageOfTheDay {
@@ -48,9 +46,7 @@ class MessageOfTheDayImpl extends MessageOfTheDay {
 
   @Inject
   public MessageOfTheDayImpl(
-      PluginConfigFactory configFactory,
-      @PluginName String myName,
-      @PluginData File data) {
+      PluginConfigFactory configFactory, @PluginName String myName, @PluginData File data) {
     this.data = data;
     Config cfg = configFactory.getGlobalPluginConfig(myName);
     id = cfg.getString("message", null, "id");
