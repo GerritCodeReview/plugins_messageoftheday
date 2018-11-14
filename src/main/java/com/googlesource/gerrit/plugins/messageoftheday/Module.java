@@ -21,7 +21,6 @@ import com.google.inject.AbstractModule;
 class Module extends AbstractModule {
   @Override
   protected void configure() {
-    DynamicSet.bind(binder(), MessageOfTheDay.class).to(
-        MessageOfTheDayImpl.class);
+    DynamicSet.bind(binder(), MessageOfTheDay.class).to(MessageOfTheDayImpl.class);
   }
 }
