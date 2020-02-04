@@ -1,4 +1,4 @@
-// Copyright (C) 2016 The Android Open Source Project
+// Copyright (C) 2020 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,20 +14,15 @@
 
 package com.googlesource.gerrit.plugins.messageoftheday;
 
-import static com.google.gerrit.server.config.ConfigResource.CONFIG_KIND;
-
-import com.google.gerrit.extensions.restapi.RestApiModule;
+import com.google.gerrit.extensions.registration.DynamicSet;
+import com.google.gerrit.extensions.webui.JavaScriptPlugin;
+import com.google.gerrit.extensions.webui.WebUiPlugin;
 import com.google.inject.AbstractModule;
 
-class Module extends AbstractModule {
+public class HttpModule extends AbstractModule {
   @Override
   protected void configure() {
-    install(
-        new RestApiModule() {
-          @Override
-          protected void configure() {
-            get(CONFIG_KIND, "message").to(GetMessage.class);
-          }
-        });
+    DynamicSet.bind(binder(), WebUiPlugin.class)
+        .toInstance(new JavaScriptPlugin("gr-messageoftheday.html"));
   }
 }
