@@ -1,4 +1,4 @@
-// Copyright (C) 2016 The Android Open Source Project
+// Copyright (C) 2020 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,20 +14,18 @@
 
 package com.googlesource.gerrit.plugins.messageoftheday;
 
-import static com.google.gerrit.server.config.ConfigResource.CONFIG_KIND;
+import java.util.Date;
 
-import com.google.gerrit.extensions.restapi.RestApiModule;
-import com.google.inject.AbstractModule;
-
-class Module extends AbstractModule {
-  @Override
-  protected void configure() {
-    install(
-        new RestApiModule() {
-          @Override
-          protected void configure() {
-            get(CONFIG_KIND, "message").to(GetMessage.class);
-          }
-        });
-  }
+/** REST API representation of a "message of the day". */
+public class MessageOfTheDayInfo {
+  /** The ID of the message. */
+  public String id;
+  /** The time from which on the message will be displayed. */
+  public Date startsAt;
+  /** The time from which on the message will not be displayed anymore. */
+  public Date expiresAt;
+  /** The date and time the message will be displayed again after being dismissed by the user. */
+  public Date redisplay;
+  /** The message in HTML-format. */
+  public String html;
 }
