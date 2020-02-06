@@ -6,6 +6,7 @@ gerrit_plugin(
     manifest_entries = [
         "Gerrit-PluginName: messageoftheday",
         "Gerrit-Module: com.googlesource.gerrit.plugins.messageoftheday.Module",
+        "Gerrit-HttpModule: com.googlesource.gerrit.plugins.messageoftheday.HttpModule",
         "Implementation-Title: Plugin messageoftheday",
         "Implementation-URL: https://gerrit-review.googlesource.com/#/admin/projects/plugins/messageoftheday",
     ],
