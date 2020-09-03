@@ -74,14 +74,14 @@ public class GetMessage implements RestReadView<ConfigResource> {
     motd.id = cfg.getString(SECTION_MESSAGE, null, KEY_ID);
     if (Strings.isNullOrEmpty(motd.id)) {
       log.warn("id not defined, no message will be shown");
-      return null;
+      return Response.none();
     }
 
     try {
       motd.expiresAt = DATE_FORMAT.parse(cfg.getString(SECTION_MESSAGE, null, KEY_EXPIRES_AT));
     } catch (ParseException | NullPointerException e) {
       log.warn("expiresAt not defined, no message will be shown");
-      return null;
+      return Response.none();
     }
 
     try {
@@ -90,7 +90,7 @@ public class GetMessage implements RestReadView<ConfigResource> {
       log.warn(
           String.format(
               "No HTML-file was found for message %s, no message will be shown", motd.id));
-      return null;
+      return Response.none();
     }
 
     try {
@@ -101,7 +101,7 @@ public class GetMessage implements RestReadView<ConfigResource> {
     }
 
     if (motd.startsAt.compareTo(new Date()) > 0 || motd.expiresAt.compareTo(new Date()) < 0) {
-      return null;
+      return Response.none();
     }
 
     motd.redisplay = getRedisplay();
