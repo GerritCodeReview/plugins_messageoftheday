@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b364bff_273e3d5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012732
+      },
+      "writtenOn": "2020-10-30T13:13:10Z",
+      "side": 1,
+      "message": "Trivial change identical to other previously approved changes, needed to continue upstream merges timely. Core already has this upgrade in and up to master.",
+      "revId": "030a26b2f6a9ed7e15fcf9266f4873e772ca8aec",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
