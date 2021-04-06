@@ -23,6 +23,6 @@ public class HttpModule extends AbstractModule {
   @Override
   protected void configure() {
     DynamicSet.bind(binder(), WebUiPlugin.class)
-        .toInstance(new JavaScriptPlugin("gr-messageoftheday.html"));
+        .toInstance(new JavaScriptPlugin("gr-messageoftheday.js"));
   }
 }
