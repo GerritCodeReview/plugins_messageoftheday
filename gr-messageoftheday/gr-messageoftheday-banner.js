@@ -57,7 +57,7 @@ class GrMessageOfTheDayBanner extends Polymer.Element {
   }
 
   _isHidden() {
-    this._hidden = window.util.getCookie(`msg-${this._message.id}`) === '1';
+    this._hidden = document.cookie.search(`msg-${this._message.id}=`) > -1;
   }
 }
 
