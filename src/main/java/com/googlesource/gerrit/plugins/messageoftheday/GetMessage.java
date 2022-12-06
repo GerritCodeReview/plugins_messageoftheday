@@ -85,15 +85,6 @@ public class GetMessage implements RestReadView<ConfigResource> {
     }
 
     try {
-      motd.html = new String(Files.readAllBytes(dataDirPath.resolve(motd.id + ".html")), UTF_8);
-    } catch (IOException e1) {
-      log.warn(
-          String.format(
-              "No HTML-file was found for message %s, no message will be shown", motd.id));
-      return Response.none();
-    }
-
-    try {
       String startsAt = cfg.getString(SECTION_MESSAGE, null, KEY_STARTS_AT);
       motd.startsAt = Strings.isNullOrEmpty(startsAt) ? new Date() : DATE_FORMAT.parse(startsAt);
     } catch (ParseException e) {
@@ -101,6 +92,16 @@ public class GetMessage implements RestReadView<ConfigResource> {
     }
 
     if (motd.startsAt.compareTo(new Date()) > 0 || motd.expiresAt.compareTo(new Date()) < 0) {
+      log.debug("Current date/time is outside of the startsAt..expiresAt interval");
+      return Response.none();
+    }
+
+    try {
+      motd.html = new String(Files.readAllBytes(dataDirPath.resolve(motd.id + ".html")), UTF_8);
+    } catch (IOException e1) {
+      log.warn(
+          String.format(
+              "No HTML-file was found for message %s, no message will be shown", motd.id));
       return Response.none();
     }
 
