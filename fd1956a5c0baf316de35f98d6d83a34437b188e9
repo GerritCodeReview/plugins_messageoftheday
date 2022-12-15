@@ -33,6 +33,24 @@
       "message": "unrelated to this change: don\u0027t use String.format but slf4j formatting to avoid work if the logger is disabled",
       "revId": "fd1956a5c0baf316de35f98d6d83a34437b188e9",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7efc0c1c_ad59511b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/GetMessage.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2022-12-15T10:28:20Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e3e8f482_26bf4c5e",
+      "revId": "fd1956a5c0baf316de35f98d6d83a34437b188e9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
