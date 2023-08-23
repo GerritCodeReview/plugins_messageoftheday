@@ -29,6 +29,6 @@ export const htmlTemplate = Polymer.html`
   <div id="message"></div>
   <gr-button id="dismissMessageBtn"
     link
-    on-tap="_handleDismissMessage">Dismiss</gr-button>
+    on-click="_handleDismissMessage">Dismiss</gr-button>
 </div>
 <gr-rest-api-interface id="restAPI"></gr-rest-api-interface>`;
