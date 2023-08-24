@@ -30,9 +30,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
 import org.eclipse.jgit.util.FS;
@@ -105,18 +103,6 @@ public class GetMessage implements RestReadView<ConfigResource> {
       return Response.none();
     }
 
-    motd.redisplay = getRedisplay();
-
     return Response.ok(motd);
-  }
-
-  private Date getRedisplay() {
-    Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
-    cal.set(Calendar.HOUR_OF_DAY, 0);
-    cal.set(Calendar.MINUTE, 0);
-    cal.set(Calendar.SECOND, 0);
-    cal.set(Calendar.MILLISECOND, 0);
-    cal.add(Calendar.DAY_OF_MONTH, 1);
-    return cal.getTime();
   }
 }
