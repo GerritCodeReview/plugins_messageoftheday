@@ -22,6 +22,30 @@
       },
       "revId": "7b3278d6dc863f4e36c33cc95dfb8f868b30f963",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3f30e77_efa8dc01",
+        "filename": "gr-messageoftheday/gr-messageoftheday-banner_html.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2023-08-24T22:46:41Z",
+      "side": 1,
+      "message": "This change does solve the problem it aims to solve, so it\u0027s better to submit it and bikeshed on the color later. 😊",
+      "parentUuid": "caeb094d_94459e59",
+      "range": {
+        "startLine": 21,
+        "startChar": 26,
+        "endLine": 21,
+        "endChar": 52
+      },
+      "revId": "7b3278d6dc863f4e36c33cc95dfb8f868b30f963",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
