@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba3d0abd_15c6b65a",
+        "filename": "gr-messageoftheday/gr-messageoftheday-banner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1096442
+      },
+      "writtenOn": "2023-08-24T07:19:29Z",
+      "side": 1,
+      "message": "this is only working without quotes. path\u003d/",
+      "revId": "9fa9b055e2c07b347ca072240987fe13347e0524",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
