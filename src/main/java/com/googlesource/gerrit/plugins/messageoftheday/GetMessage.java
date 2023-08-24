@@ -28,6 +28,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -110,13 +111,13 @@ public class GetMessage implements RestReadView<ConfigResource> {
     return Response.ok(motd);
   }
 
-  private Date getRedisplay() {
+  private Timestamp getRedisplay() {
     Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT"));
     cal.set(Calendar.HOUR_OF_DAY, 0);
     cal.set(Calendar.MINUTE, 0);
     cal.set(Calendar.SECOND, 0);
     cal.set(Calendar.MILLISECOND, 0);
     cal.add(Calendar.DAY_OF_MONTH, 1);
-    return cal.getTime();
+    return new Timestamp(cal.getTimeInMillis());
   }
 }

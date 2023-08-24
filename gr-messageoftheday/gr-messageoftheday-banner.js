@@ -51,13 +51,23 @@ class GrMessageOfTheDayBanner extends Polymer.Element {
   }
 
   _handleDismissMessage() {
+    const redisplay = this._parseDate(this._message.redisplay);
     document.cookie =
-      `msg-${this._message.id}=1; path=/; expires=${this._message.redisplay}`;
+      `msg-${this._message.id}=1; path=/; expires=${redisplay}`;
     this._hidden = true;
   }
 
   _isHidden() {
     this._hidden = document.cookie.search(`msg-${this._message.id}=`) > -1;
+  }
+
+  // copied from gerrit core (polygerrit-ui/app/utils/date-util)
+  _parseDate(dateStr) {
+    // Timestamps are given in UTC and have the format
+    // "'yyyy-mm-dd hh:mm:ss.fffffffff'" where "'ffffffffff'" represents
+    // nanoseconds.
+    // Munge the date into an ISO 8061 format and parse that.
+    return new Date(dateStr.replace(' ', 'T') + 'Z');
   }
 }
 

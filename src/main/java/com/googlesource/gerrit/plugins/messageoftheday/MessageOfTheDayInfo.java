@@ -14,6 +14,7 @@
 
 package com.googlesource.gerrit.plugins.messageoftheday;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /** REST API representation of a "message of the day". */
@@ -25,7 +26,7 @@ public class MessageOfTheDayInfo {
   /** The time from which on the message will not be displayed anymore. */
   public Date expiresAt;
   /** The date and time the message will be displayed again after being dismissed by the user. */
-  public Date redisplay;
+  public Timestamp redisplay;
   /** The message in HTML-format. */
   public String html;
 }
