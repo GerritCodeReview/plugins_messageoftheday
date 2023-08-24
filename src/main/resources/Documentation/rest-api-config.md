@@ -36,7 +36,6 @@ is returned that contains the message and associated metadata.
     "id": "hello",
     "starts_at": "Feb 4, 2020 5:53:00 PM",
     "expires_at": "Dec 30, 2020 6:00:00 PM",
-    "redisplay": "Feb 5, 2020 1:00:00 AM",
     "html": "hello you!"
   }
 ```
@@ -48,7 +47,6 @@ The `MessageOfTheDayInfo` entity contains information about the message of the d
 * `id`: ID of the message.
 * `starts_at`: Date, when the message will be first displayed
 * `expires_at`: Date, after which the message will not be displayed anymore
-* `redisplay`: Date, after which will the message be displayed again after dismissal
 * `html`: String, containing the HTML-formatted message
 
 

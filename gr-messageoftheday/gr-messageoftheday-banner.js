@@ -52,12 +52,22 @@ class GrMessageOfTheDayBanner extends Polymer.Element {
 
   _handleDismissMessage() {
     document.cookie =
-      `msg-${this._message.id}=1; path=/; expires=${this._message.redisplay}`;
+      `msg-${this._message.id}=1; path=/; expires=${this._getExpires()}`;
     this._hidden = true;
   }
 
   _isHidden() {
     this._hidden = document.cookie.search(`msg-${this._message.id}=`) > -1;
+  }
+
+  _getExpires() {
+    var date = new Date();
+    date.setHours(0);
+    date.setMinutes(0);
+    date.setSeconds(0);
+    date.setMilliseconds(0);
+    date.setDate(date.getDate() + 1);
+    return date.toUTCString();
   }
 }
 

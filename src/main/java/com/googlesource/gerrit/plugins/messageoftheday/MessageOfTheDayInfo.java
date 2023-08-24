@@ -24,8 +24,6 @@ public class MessageOfTheDayInfo {
   public Date startsAt;
   /** The time from which on the message will not be displayed anymore. */
   public Date expiresAt;
-  /** The date and time the message will be displayed again after being dismissed by the user. */
-  public Date redisplay;
   /** The message in HTML-format. */
   public String html;
 }
