@@ -1,7 +1,5 @@
-load("@npm//@bazel/rollup:index.bzl", "rollup_bundle")
 load("//tools/bzl:plugin.bzl", "gerrit_plugin")
-load("//tools/bzl:genrule2.bzl", "genrule2")
-load("//tools/bzl:js.bzl", "polygerrit_plugin")
+load("//tools/bzl:js.bzl", "gerrit_js_bundle")
 
 gerrit_plugin(
     name = "messageoftheday",
@@ -13,36 +11,12 @@ gerrit_plugin(
         "Implementation-Title: Plugin messageoftheday",
         "Implementation-URL: https://gerrit-review.googlesource.com/#/admin/projects/plugins/messageoftheday",
     ],
-    resource_jars = [":gr-messageoftheday-static"],
+    resource_jars = [":gr-messageoftheday"],
     resources = glob(["src/main/resources/**/*"]),
 )
 
-genrule2(
-    name = "gr-messageoftheday-static",
-    srcs = [":gr-messageoftheday"],
-    outs = ["gr-messageoftheday-static.jar"],
-    cmd = " && ".join([
-        "mkdir $$TMP/static",
-        "cp -r $(locations :gr-messageoftheday) $$TMP/static",
-        "cd $$TMP",
-        "zip -Drq $$ROOT/$@ -g .",
-    ]),
-)
-
-polygerrit_plugin(
+gerrit_js_bundle(
     name = "gr-messageoftheday",
-    app = "gr-messageoftheday-bundle.js",
-    plugin_name = "gr-messageoftheday",
-)
-
-rollup_bundle(
-    name = "gr-messageoftheday-bundle",
     srcs = glob(["gr-messageoftheday/*.js"]),
     entry_point = "gr-messageoftheday/plugin.js",
-    format = "iife",
-    rollup_bin = "//tools/node_tools:rollup-bin",
-    sourcemap = "hidden",
-    deps = [
-        "@tools_npm//rollup-plugin-node-resolve",
-    ],
 )
