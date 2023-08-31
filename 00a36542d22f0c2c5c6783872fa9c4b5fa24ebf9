@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "83842e9b_582ab0c7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2023-08-31T14:55:53Z",
+      "side": 1,
+      "message": "It shows as the same line # in the diff screen. Martin had the same problem recently, so it would be good to figure out a way to improve commit message editing to help the user more with this.",
+      "parentUuid": "6bab0400_f6fe6739",
+      "revId": "00a36542d22f0c2c5c6783872fa9c4b5fa24ebf9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "107f0783_37bd0f9a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
