@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6bab0400_f6fe6739",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2023-08-31T14:52:54Z",
+      "side": 1,
+      "message": "Done.\nBTW I edited the commit message from UI and didn\u0027t notice that there was no wrap. How did you figure that out ?",
+      "parentUuid": "11c0b154_298dd346",
+      "revId": "00a36542d22f0c2c5c6783872fa9c4b5fa24ebf9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "107f0783_37bd0f9a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
