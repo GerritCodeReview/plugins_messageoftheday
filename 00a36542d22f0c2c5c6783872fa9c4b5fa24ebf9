@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "107f0783_37bd0f9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2023-08-31T09:47:36Z",
+      "side": 1,
+      "message": "~/projects/messageoftheday % bazel build messageoftheday\nStarting local Bazel server and connecting to it...\nINFO: Analyzed target //:messageoftheday (56 packages loaded, 727 targets configured).\nINFO: Found 1 target...\nTarget //:messageoftheday up-to-date:\n  bazel-bin/messageoftheday.jar\nINFO: Elapsed time: 10.100s, Critical Path: 1.74s\nINFO: 3 processes: 1 internal, 2 darwin-sandbox.\nINFO: Build completed successfully, 3 total actions",
+      "revId": "00a36542d22f0c2c5c6783872fa9c4b5fa24ebf9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
