@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8906a9ae_e7dec501",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1096442
+      },
+      "writtenOn": "2023-08-31T08:50:46Z",
+      "side": 1,
+      "message": "\u003e Are you sure this is broken?\n\nYes, Nasser. I have updated the fix and commit message. PTAL\n\n\u003e We\u0027re not using Set-Cookie\n\nAck.",
+      "parentUuid": "c4336e56_41a9206c",
+      "revId": "e53557d452921385d8ee716045d862b4f6108c37",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d436a7c4_6cfc6911",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-08-28T14:29:20Z",
       "side": 1,
       "message": "The `toUTCString()` method [2] that is recommended in [1] for `expires` has a format like `Wed, 14 Jun 2017 07:00:00 GMT`. That does seem to be different than the format sent by the server, so perhaps this is the issue you\u0027re seeing?\n\n[1] https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie#write_a_new_cookie\n[2] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toUTCString",
+      "revId": "e53557d452921385d8ee716045d862b4f6108c37",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbec7bd9_19dc03fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1096442
+      },
+      "writtenOn": "2023-08-31T08:50:46Z",
+      "side": 1,
+      "message": "\u003e so perhaps this is the issue you\u0027re seeing?\n\nThis is one of the issue I\u0027m seeing. Updated in the latest PS. PTAL.",
+      "parentUuid": "d436a7c4_6cfc6911",
       "revId": "e53557d452921385d8ee716045d862b4f6108c37",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
