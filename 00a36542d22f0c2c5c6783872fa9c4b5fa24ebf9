@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "11c0b154_298dd346",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2023-08-31T14:49:09Z",
+      "side": 1,
+      "message": "nit: line wrap please",
+      "revId": "00a36542d22f0c2c5c6783872fa9c4b5fa24ebf9",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "107f0783_37bd0f9a",
