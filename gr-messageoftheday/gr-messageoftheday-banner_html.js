@@ -24,6 +24,9 @@ export const htmlTemplate = Polymer.html`
     justify-content: space-between;
     padding: 1em;
   }
+  #message {
+    flex-grow: 1;
+  }
 </style>
 <div id="container" hidden$="[[_hidden]]">
   <div id="message"></div>
