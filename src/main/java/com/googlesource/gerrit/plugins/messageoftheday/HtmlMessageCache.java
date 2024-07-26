@@ -1,4 +1,4 @@
-// Copyright (C) 2016 The Android Open Source Project
+// Copyright (C) 2024 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,21 +14,8 @@
 
 package com.googlesource.gerrit.plugins.messageoftheday;
 
-import static com.google.gerrit.server.config.ConfigResource.CONFIG_KIND;
+import java.util.concurrent.ExecutionException;
 
-import com.google.gerrit.extensions.restapi.RestApiModule;
-import com.google.inject.AbstractModule;
-
-class Module extends AbstractModule {
-  @Override
-  protected void configure() {
-    install(
-        new RestApiModule() {
-          @Override
-          protected void configure() {
-            get(CONFIG_KIND, "message").to(GetMessage.class);
-          }
-        });
-    install(HtmlMessageCacheImpl.module());
-  }
+public interface HtmlMessageCache {
+  String getHtmlMsg(FileNameKey file) throws ExecutionException;
 }
