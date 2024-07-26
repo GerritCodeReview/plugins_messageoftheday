@@ -14,17 +14,26 @@
 
 package com.googlesource.gerrit.plugins.messageoftheday;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
+import static com.google.gerrit.server.project.ProjectCache.illegalState;
 
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Strings;
+import com.google.gerrit.entities.BranchNameKey;
+import com.google.gerrit.entities.Project;
 import com.google.gerrit.extensions.annotations.PluginData;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.restapi.BadRequestException;
+import com.google.gerrit.extensions.restapi.ResourceNotFoundException;
 import com.google.gerrit.extensions.restapi.Response;
 import com.google.gerrit.extensions.restapi.RestReadView;
+import com.google.gerrit.server.change.FileContentUtil;
 import com.google.gerrit.server.config.ConfigResource;
+import com.google.gerrit.server.config.GerritServerConfig;
 import com.google.gerrit.server.config.SitePaths;
+import com.google.gerrit.server.git.GitRepositoryManager;
+import com.google.gerrit.server.git.meta.VersionedMetaData;
+import com.google.gerrit.server.project.ProjectCache;
 import com.google.inject.Inject;
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -32,41 +41,109 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.lib.CommitBuilder;
+import org.eclipse.jgit.lib.Config;
+import org.eclipse.jgit.lib.ObjectId;
+import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
 import org.eclipse.jgit.util.FS;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class GetMessage implements RestReadView<ConfigResource> {
+  protected static class VersionedMotdConfig extends VersionedMetaData {
+    protected final BranchNameKey branch;
+    protected final String fileName;
+    protected Config cfg;
+
+    public VersionedMotdConfig(BranchNameKey branch, String fileName) {
+      this.branch = branch;
+      this.fileName = fileName;
+    }
+
+    @Override
+    protected String getRefName() {
+      return branch.branch();
+    }
+
+    @Override
+    protected void onLoad() throws IOException, ConfigInvalidException {
+      cfg = readConfig(fileName);
+    }
+
+    @Override
+    protected boolean onSave(CommitBuilder commit) throws IOException, ConfigInvalidException {
+      return false;
+    }
+
+    public Config get() {
+      if (cfg == null) {
+        cfg = new Config();
+      }
+      return cfg;
+    }
+  }
+
   private static final String SECTION_MESSAGE = "message";
   private static final String KEY_ID = "id";
   private static final String KEY_STARTS_AT = "startsAt";
   private static final String KEY_EXPIRES_AT = "expiresAt";
 
+  private static final String SECTION_PROJECT = "project";
+  private static final String KEY_NAME = "name";
+  private static final String KEY_BRANCH = "branch";
+  private static final String KEY_CFG_DIR = "configDir";
+  private static final String KEY_DATA_DIR = "dataDir";
+
   private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd:HHmm");
 
   private static final Logger log = LoggerFactory.getLogger(GetMessage.class);
 
-  private final File cfgFile;
+  private final GitRepositoryManager repoManager;
+  private final Config gerritCfg;
+  private final String pluginName;
+  private final SitePaths sitePaths;
   private final Path dataDirPath;
+  private final String pluginCfgName;
+  private final ProjectCache projectCache;
+  private final FileContentUtil fileContentUtil;
 
-  private volatile FileBasedConfig cfg;
+  private Project.NameKey customProject;
+  private ObjectId customBranchObjId;
+  private volatile Config cfg;
 
   @Inject
   public GetMessage(
-      @PluginName String pluginName, @PluginData Path dataDirPath, SitePaths sitePaths) {
+      GitRepositoryManager repoManager,
+      @GerritServerConfig Config gerritCfg,
+      @PluginName String pluginName,
+      @PluginData Path dataDirPath,
+      SitePaths sitePaths,
+      ProjectCache projectCache,
+      FileContentUtil fileContentUtil) {
+    this.repoManager = repoManager;
+    this.gerritCfg = gerritCfg;
+    this.pluginName = pluginName;
     this.dataDirPath = dataDirPath;
-    this.cfgFile = sitePaths.etc_dir.resolve(pluginName + ".config").toFile();
+    this.sitePaths = sitePaths;
+    this.projectCache = projectCache;
+    this.fileContentUtil = fileContentUtil;
+    this.pluginCfgName = pluginName + ".config";
   }
 
   @Override
   public Response<MessageOfTheDayInfo> apply(ConfigResource rsrc) {
     MessageOfTheDayInfo motd = new MessageOfTheDayInfo();
-    cfg = new FileBasedConfig(cfgFile, FS.DETECTED);
-    try {
-      cfg.load();
-    } catch (ConfigInvalidException | IOException e) {
-      return null;
+
+    String projectName = gerritCfg.getString(pluginName, SECTION_PROJECT, KEY_NAME);
+    if (projectName != null) {
+      customProject = Project.NameKey.parse(projectName);
+    }
+
+    cfg = getPluginCfg();
+    if (cfg == null) {
+      log.warn(String.format("could not load %s, no message will be shown", pluginCfgName));
+      return Response.none();
     }
 
     String htmlFileId = cfg.getString(SECTION_MESSAGE, null, KEY_ID);
@@ -95,8 +172,8 @@ public class GetMessage implements RestReadView<ConfigResource> {
     }
 
     try {
-      motd.html = new String(Files.readAllBytes(dataDirPath.resolve(htmlFileId + ".html")), UTF_8);
-    } catch (IOException e1) {
+      motd.html = getHtmlContent(htmlFileId + ".html");
+    } catch (IOException | ResourceNotFoundException | BadRequestException e) {
       log.warn(
           String.format(
               "No HTML-file was found for message %s, no message will be shown", htmlFileId));
@@ -105,5 +182,67 @@ public class GetMessage implements RestReadView<ConfigResource> {
 
     motd.id = Integer.toString(motd.html.hashCode());
     return Response.ok(motd);
+  }
+
+  private Config getPluginCfg() {
+    return customProject != null ? getPluginCfgFromCustomProject() : getPluginCfgFromSite();
+  }
+
+  private String getHtmlContent(String file)
+      throws BadRequestException, IOException, ResourceNotFoundException {
+    return customProject != null ? getHtmlFromCustomProject(file) : getHtmlFromSite(file);
+  }
+
+  private Config getPluginCfgFromCustomProject() {
+    String cfg = pluginCfgName;
+    String cfgDir = gerritCfg.getString(pluginName, SECTION_PROJECT, KEY_CFG_DIR);
+    if (cfgDir != null) {
+      cfg = Path.of(cfgDir).resolve(pluginCfgName).toFile().getPath();
+    }
+    BranchNameKey branch =
+        BranchNameKey.create(
+            customProject,
+            MoreObjects.firstNonNull(
+                gerritCfg.getString(pluginName, SECTION_PROJECT, KEY_BRANCH), "refs/heads/master"));
+    VersionedMotdConfig versionedCfg = new VersionedMotdConfig(branch, cfg);
+    try (Repository repository = repoManager.openRepository(customProject)) {
+      customBranchObjId = repository.exactRef(branch.branch()).getObjectId();
+      versionedCfg.load(customProject, repository, customBranchObjId);
+      return versionedCfg.cfg;
+    } catch (IOException | ConfigInvalidException e) {
+      log.warn(
+          String.format("Unable to load config from custom project %s", customProject.get()), e);
+    }
+    return null;
+  }
+
+  private Config getPluginCfgFromSite() {
+    FileBasedConfig cfg =
+        new FileBasedConfig(sitePaths.etc_dir.resolve(pluginCfgName).toFile(), FS.DETECTED);
+    try {
+      cfg.load();
+    } catch (ConfigInvalidException | IOException e) {
+      return null;
+    }
+    return cfg;
+  }
+
+  private String getHtmlFromCustomProject(String file)
+      throws BadRequestException, IOException, ResourceNotFoundException {
+    String dataDir = gerritCfg.getString(pluginName, SECTION_PROJECT, KEY_DATA_DIR);
+    if (dataDir != null) {
+      file = Path.of(dataDir).resolve(file).toFile().getPath();
+    }
+    return fileContentUtil
+        .getContent(
+            projectCache.get(customProject).orElseThrow(illegalState(customProject)),
+            customBranchObjId,
+            file,
+            null)
+        .asString();
+  }
+
+  private String getHtmlFromSite(String file) throws IOException {
+    return Files.readString(dataDirPath.resolve(file));
   }
 }
