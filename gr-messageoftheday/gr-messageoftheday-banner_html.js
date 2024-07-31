@@ -18,7 +18,7 @@
 export const htmlTemplate = Polymer.html`
 <style include="shared-styles">
   #container {
-    background-color: var(--assignee-highlight-color);
+    background-color: var(--line-item-highlight-color);
     display: flex;
     height: fit-content;
     justify-content: space-between;
