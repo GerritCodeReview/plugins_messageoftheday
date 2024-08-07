@@ -69,8 +69,8 @@ public class GetMessage implements RestReadView<ConfigResource> {
       return null;
     }
 
-    motd.id = cfg.getString(SECTION_MESSAGE, null, KEY_ID);
-    if (Strings.isNullOrEmpty(motd.id)) {
+    String htmlFileId = cfg.getString(SECTION_MESSAGE, null, KEY_ID);
+    if (Strings.isNullOrEmpty(htmlFileId)) {
       log.warn("id not defined, no message will be shown");
       return Response.none();
     }
@@ -95,14 +95,15 @@ public class GetMessage implements RestReadView<ConfigResource> {
     }
 
     try {
-      motd.html = new String(Files.readAllBytes(dataDirPath.resolve(motd.id + ".html")), UTF_8);
+      motd.html = new String(Files.readAllBytes(dataDirPath.resolve(htmlFileId + ".html")), UTF_8);
     } catch (IOException e1) {
       log.warn(
           String.format(
-              "No HTML-file was found for message %s, no message will be shown", motd.id));
+              "No HTML-file was found for message %s, no message will be shown", htmlFileId));
       return Response.none();
     }
 
+    motd.id = Integer.toString(motd.html.hashCode());
     return Response.ok(motd);
   }
 }

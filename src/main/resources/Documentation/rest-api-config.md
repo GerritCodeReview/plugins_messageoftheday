@@ -44,7 +44,7 @@ is returned that contains the message and associated metadata.
 
 The `MessageOfTheDayInfo` entity contains information about the message of the day.
 
-* `id`: ID of the message.
+* `id`: ID of the message generated based on the message content.
 * `starts_at`: Date, when the message will be first displayed
 * `expires_at`: Date, after which the message will not be displayed anymore
 * `html`: String, containing the HTML-formatted message
