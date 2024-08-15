@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddd22e31_c758ba64",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/GetMessage.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-08-15T20:10:36Z",
+      "side": 1,
+      "message": "Add a TODO to use `VersionedConfigFile`[1] when supporting 3.10+\n\n[1] 413077: Add a VersionedConfigFile to dedup core and plugins | https://gerrit-review.googlesource.com/c/gerrit/+/413077",
+      "range": {
+        "startLine": 54,
+        "startChar": 25,
+        "endLine": 54,
+        "endChar": 44
+      },
+      "revId": "016fb3be0fd0727169939d1b37cc522af3c7dfe7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6831af41_14de18d5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/GetMessage.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-08-15T20:10:36Z",
+      "side": 1,
+      "message": "Could this go into the constructor instead? (or as I suggest below, into a `@Provides` method in the module)",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 5
+      },
+      "revId": "016fb3be0fd0727169939d1b37cc522af3c7dfe7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85fa3ead_5f095f41",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/GetMessage.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-08-15T20:10:36Z",
+      "side": 1,
+      "message": "These (this line and the ones below with a similar pattern) look like a great place to use different classes instead of different methods. You could maybe even use a `@Provides` method in `Module` to just get the correct one injected into your `GetMessage` constructor.",
+      "range": {
+        "startLine": 188,
+        "startChar": 11,
+        "endLine": 188,
+        "endChar": 92
+      },
+      "revId": "016fb3be0fd0727169939d1b37cc522af3c7dfe7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46203057_1be37007",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-08-15T20:10:36Z",
+      "side": 1,
+      "message": "Given this note, you can make any class that exists only to access this data a `Singleton`.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 76
+      },
+      "revId": "016fb3be0fd0727169939d1b37cc522af3c7dfe7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e737c7df_1fb2b136",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-08-15T20:10:36Z",
+      "side": 1,
+      "message": "I think it\u0027s discouraged to use the subsection for a \"structured\" value like this. Additionally, Gerrit expects [1] plugins to store their config in gerrit.config with a section.subsection format like:\n```\n[plugin \"messageoftheday\"]\n```\n\nGiven that, I think you want to have this look like:\n\n```suggestion\n  [plugin \"messageoftheday\"]\n    repoName \u003d motd\n    repoBranch \u003d refs/heads/master\n    configDir \u003d configurations\n    dataDir \u003d html_content\n```\n\nAnd then it follows that a user would probably expect a config like this (that relocates the dirs to non-default filesystem paths) to work as well:\n```\n  [plugin \"messageoftheday\"]\n    configDir \u003d /path/to/gerrit/site/motd/configurations\n    dataDir \u003d /path/to/gerrit/site/motd/html_content\n```\n\nI would probably make a change to support that simpler version and then base this change on top. The only challenge with that is you probably have different default values for `configDir`/`dataDir` when `repoName` is set. That\u0027s easy enough to do in the code, but you have to explain it in the docs well.\n\nThat initial change can setup the framework by doing things like injecting a config class based on a provides method (webhooks does it just to create the config file name [2], but you can do more).\n\n\n[1] https://gerrit-review.googlesource.com/Documentation/dev-plugins.html#simple-configuration\n[2] https://gerrit.googlesource.com/plugins/webhooks/+/v3.9.4/src/main/java/com/googlesource/gerrit/plugins/webhooks/PluginModule.java#68",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 26
+      },
+      "revId": "016fb3be0fd0727169939d1b37cc522af3c7dfe7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f3e36db_daf9b04d",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-08-15T20:10:36Z",
+      "side": 1,
+      "message": "Split this into repo and branch\n```suggestion\n`mtod.git` and on the branch `refs/heads/master`.\n```",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 28
+      },
+      "revId": "016fb3be0fd0727169939d1b37cc522af3c7dfe7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
