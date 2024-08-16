@@ -1,7 +1,8 @@
 # Configuration
 
 Configuration of the @PLUGIN@ plugin is done in the `messageoftheday.config`
-file in the site's `etc` directory.
+file in the site's `etc` directory by default. Its location can be configured
+in `gerrit.config`.
 
 NOTE: when the `messageoftheday.config` file changes, the plugin needs to
 be reloaded for the configuration change to take effect.
@@ -31,14 +32,30 @@ message.expiresAt
 	will not be displayed.
 	The format of this field is `yyyyMMdd:HHmm`.
 
+## `gerrit.config`
+```
+  [plugin "@PLUGIN@"]
+    configDir = /full/path/to/configDir
+    dataDir = /full/path/to/htmlContentDir
+```
+plugin.@PLUGIN@.configDir
+:	The path where `@PLUGIN@.config` is located. Defaults to site's `etc/` directory.
+
+plugin.@PLUGIN@.dataDir
+:	The path where `<message.id>.html` is located. Defaults to site's `data/@PLUGIN@/` directory.
+
 ## Message content and location
 
-A message is an HTML file, named like `<message.id>.html` and stored in the
-site's `data/@PLUGIN@/` directory. For the above example, the message.id is
-`hello` which means that the file containing the message content is stored under:
+A message is an HTML file, named like `<message.id>.html` and stored by default in
+the site's `data/@PLUGIN@/` directory. For a config like below, the message.id is
+`hello` which means that the file containing the message content is stored under
+`$GERRIT_SITE/data/@PLUGIN@/hello.html`
 
 ```
-  $GERRIT_SITE/data/@PLUGIN@/hello.html
+  [message]
+    id = hello
+    startsAt = 20170803:1420
+    expiresAt = 20170810:1730
 ```
 
 The message content is an HTML snippet. For example:
