@@ -118,6 +118,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d208c82_a87450cf",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-08-16T18:52:15Z",
+      "side": 1,
+      "message": "Attempted here: 435142: Allow configuring config and data dirs | https://gerrit-review.googlesource.com/c/plugins/messageoftheday/+/435142",
+      "parentUuid": "e737c7df_1fb2b136",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 26
+      },
+      "revId": "016fb3be0fd0727169939d1b37cc522af3c7dfe7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f3e36db_daf9b04d",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 2
