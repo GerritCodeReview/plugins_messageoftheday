@@ -17,12 +17,10 @@ package com.googlesource.gerrit.plugins.messageoftheday;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 import com.google.common.base.Strings;
-import com.google.gerrit.extensions.annotations.PluginData;
 import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.restapi.Response;
 import com.google.gerrit.extensions.restapi.RestReadView;
 import com.google.gerrit.server.config.ConfigResource;
-import com.google.gerrit.server.config.SitePaths;
 import com.google.inject.Inject;
 import java.io.File;
 import java.io.IOException;
@@ -54,9 +52,9 @@ public class GetMessage implements RestReadView<ConfigResource> {
 
   @Inject
   public GetMessage(
-      @PluginName String pluginName, @PluginData Path dataDirPath, SitePaths sitePaths) {
+      @PluginName String pluginName, @ConfigDir Path cfgDir, @DataDir Path dataDirPath) {
     this.dataDirPath = dataDirPath;
-    this.cfgFile = sitePaths.etc_dir.resolve(pluginName + ".config").toFile();
+    this.cfgFile = cfgDir.resolve(pluginName + ".config").toFile();
   }
 
   @Override
