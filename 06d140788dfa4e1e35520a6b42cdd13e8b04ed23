@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc1497e4_3c84f48f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/GetMessage.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-08-21T20:14:59Z",
+      "side": 1,
+      "message": "In the subsequent change we need `@ConfigDir` not `@ConfigFile` as the cfg(for example `expiresAt`) can be updated after the plugin is loaded. So we should probably keep this as `@ConfigDir`.",
+      "parentUuid": "a5cec4c4_238808b4",
+      "range": {
+        "startLine": 55,
+        "startChar": 38,
+        "endLine": 55,
+        "endChar": 47
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3e1d75d_182c9047",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
