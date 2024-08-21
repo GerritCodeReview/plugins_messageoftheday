@@ -71,6 +71,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14ee71cb_10a52a9a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-08-21T20:25:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3e1d75d_182c9047",
+      "range": {
+        "startLine": 38,
+        "startChar": 16,
+        "endLine": 38,
+        "endChar": 35
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43e2e539_ba48b192",
@@ -84,6 +108,30 @@
       "writtenOn": "2024-08-21T19:55:40Z",
       "side": 1,
       "message": "Same idea here\n```suggestion\n    dataDir \u003d /full/path/to/htmlContentDir\n```",
+      "range": {
+        "startLine": 39,
+        "startChar": 14,
+        "endLine": 39,
+        "endChar": 39
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "574f0117_f30bdb14",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-08-21T20:25:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43e2e539_ba48b192",
       "range": {
         "startLine": 39,
         "startChar": 14,
@@ -117,6 +165,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b859cf9a_450de2ea",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-08-21T20:25:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9826805_8362d8bc",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 18
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37732be4_4586a6fb",
@@ -140,6 +212,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5e5c848_d66b378f",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-08-21T20:25:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37732be4_4586a6fb",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 16
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "219077ca_5bf8c3b1",
@@ -153,6 +249,30 @@
       "writtenOn": "2024-08-21T19:55:40Z",
       "side": 1,
       "message": "This might be taken now to refer to the `gerrit.config` example just above this, which is not what you want.",
+      "range": {
+        "startLine": 50,
+        "startChar": 47,
+        "endLine": 50,
+        "endChar": 60
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "683a2b52_76e2536a",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-08-21T20:25:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "219077ca_5bf8c3b1",
       "range": {
         "startLine": 50,
         "startChar": 47,
