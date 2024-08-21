@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5cec4c4_238808b4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/GetMessage.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-08-21T19:55:40Z",
+      "side": 1,
+      "message": "Could this be `@ConfigFile` instead or is there some benefit to having the dir?",
+      "range": {
+        "startLine": 55,
+        "startChar": 38,
+        "endLine": 55,
+        "endChar": 47
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3e1d75d_182c9047",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-08-21T19:55:40Z",
+      "side": 1,
+      "message": "1) I think you want to be clearer with s/config/configDir/ and 2) use slashes to better show this is a path\n\n```suggestion\n    configDir \u003d /full/path/to/configDir\n```",
+      "range": {
+        "startLine": 38,
+        "startChar": 16,
+        "endLine": 38,
+        "endChar": 35
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43e2e539_ba48b192",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-08-21T19:55:40Z",
+      "side": 1,
+      "message": "Same idea here\n```suggestion\n    dataDir \u003d /full/path/to/htmlContentDir\n```",
+      "range": {
+        "startLine": 39,
+        "startChar": 14,
+        "endLine": 39,
+        "endChar": 39
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9826805_8362d8bc",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-08-21T19:55:40Z",
+      "side": 1,
+      "message": "Missing `plugin.` prefix:\n```suggestion\nplugin.@PLUGIN@.configDir\n```",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 18
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37732be4_4586a6fb",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-08-21T19:55:40Z",
+      "side": 1,
+      "message": "Missing `plugin.` prefix:\n```suggestion\nplugin.@PLUGIN@.dataDir\n```",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 16
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "219077ca_5bf8c3b1",
+        "filename": "src/main/resources/Documentation/config.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-08-21T19:55:40Z",
+      "side": 1,
+      "message": "This might be taken now to refer to the `gerrit.config` example just above this, which is not what you want.",
+      "range": {
+        "startLine": 50,
+        "startChar": 47,
+        "endLine": 50,
+        "endChar": 60
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
