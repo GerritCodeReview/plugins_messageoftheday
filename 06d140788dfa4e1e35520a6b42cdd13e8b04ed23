@@ -96,6 +96,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50cb1e26_f36f9e1e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/GetMessage.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-08-22T22:52:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb830486_67e353b7",
+      "range": {
+        "startLine": 55,
+        "startChar": 38,
+        "endLine": 55,
+        "endChar": 47
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3e1d75d_182c9047",
