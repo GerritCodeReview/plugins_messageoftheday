@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb830486_67e353b7",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/GetMessage.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-08-22T15:24:17Z",
+      "side": 1,
+      "message": "I mis-understood your suggestion. I thought, you meant to provide the config content. I\u0027ll push an update.",
+      "parentUuid": "e0e8918a_045157a8",
+      "range": {
+        "startLine": 55,
+        "startChar": 38,
+        "endLine": 55,
+        "endChar": 47
+      },
+      "revId": "06d140788dfa4e1e35520a6b42cdd13e8b04ed23",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3e1d75d_182c9047",
         "filename": "src/main/resources/Documentation/config.md",
         "patchSetId": 1
