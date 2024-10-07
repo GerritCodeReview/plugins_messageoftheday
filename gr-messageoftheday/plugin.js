@@ -16,7 +16,10 @@
  */
 
 import './gr-messageoftheday-banner.js';
+import './gr-messageoftheday-edit.js';
 
 Gerrit.install(plugin => {
   plugin.registerCustomComponent('banner', 'gr-messageoftheday-banner');
+  plugin.registerCustomComponent('settings-screen', 'gr-messageoftheday-edit');
+  // TODO register a settings_menu_item?
 });
