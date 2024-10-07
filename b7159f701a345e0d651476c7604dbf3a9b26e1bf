@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5aaa865_666cef66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-10-07T19:57:55Z",
+      "side": 1,
+      "message": "Are you sure? The light colors on a dark background were terrible for me until I did https://gerrit.googlesource.com/plugins/messageoftheday/+/e6e072b69fa1d9a7bd8b631af2134a10b9353692",
+      "revId": "b7159f701a345e0d651476c7604dbf3a9b26e1bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
