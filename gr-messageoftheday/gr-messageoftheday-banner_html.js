@@ -18,7 +18,8 @@
 export const htmlTemplate = Polymer.html`
 <style include="shared-styles">
   #container {
-    background-color: var(--line-item-highlight-color);
+    background-color: #fcfad6;
+    color: #000000;
     display: flex;
     height: fit-content;
     justify-content: space-between;
@@ -26,6 +27,9 @@ export const htmlTemplate = Polymer.html`
   }
   #message {
     flex-grow: 1;
+  }
+  #dismissMessageBtn {
+    color: #000000;
   }
 </style>
 <div id="container" hidden$="[[_hidden]]">
