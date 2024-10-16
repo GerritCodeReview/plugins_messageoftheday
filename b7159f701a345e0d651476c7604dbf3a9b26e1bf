@@ -16,6 +16,24 @@
       "message": "Are you sure? The light colors on a dark background were terrible for me until I did https://gerrit.googlesource.com/plugins/messageoftheday/+/e6e072b69fa1d9a7bd8b631af2134a10b9353692",
       "revId": "b7159f701a345e0d651476c7604dbf3a9b26e1bf",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36b72603_22b55d5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1065256
+      },
+      "writtenOn": "2024-10-16T12:40:13Z",
+      "side": 1,
+      "message": "I have checked again how it looks in our system and noticed that the creator of the most recent messages, changed the CSS values in the message\u0027s html file, making it unreadable in dark mode, causing the user complaints. While I still don\u0027t like the background color, using the default provided in core is definitely the best way to go.",
+      "parentUuid": "e5aaa865_666cef66",
+      "revId": "b7159f701a345e0d651476c7604dbf3a9b26e1bf",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
