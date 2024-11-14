@@ -21,7 +21,7 @@ Gets the message of the day.
   GET /config/server/@PLUGIN@~message/ HTTP/1.0
 ```
 
-As response a [MessageOfTheDayInfo](./rest-api-config.md#MessageOfTheDayInfo) entity
+As response a [MessageOfTheDayInfo](#message-of-the-day-info) entity
 is returned that contains the message and associated metadata.
 
 #### Response
@@ -40,7 +40,41 @@ is returned that contains the message and associated metadata.
   }
 ```
 
-### MessageOfTheDayInfo
+### <a id="set-message"> Set Message
+_POST /config/server/@PLUGIN@~message/_
+
+Sets the message of the day. Only users with `Update Banner` capability on the
+server can call this API. In the request body, the data must be provided as
+a [MessageInput](#message-input) entity. `message` is
+required. `expire_after` is optional and its value should use common unit
+suffixes:
+
+* s, sec, second, seconds
+* m, min, minute, minutes
+* h, hr, hour, hours
+* d, day, days
+* w, week, weeks (`1 week` is treated as `7 days`)
+* mon, month, months (`1 month` is treated as `30 days`)
+* y, year, years (`1 year` is treated as `365 days`)
+
+#### Request
+
+```
+  POST /config/server/@PLUGIN@~message/ HTTP/1.0
+  Content-Type: application/json; charset=UTF-8
+  {
+    "message": "sample announcement",
+    "expire_after": "1 week"
+  }
+```
+
+#### Response
+
+```
+  HTTP/1.1 200 OK
+```
+
+### <a id="message-of-the-day-info"> MessageOfTheDayInfo
 
 The `MessageOfTheDayInfo` entity contains information about the message of the day.
 
@@ -48,6 +82,15 @@ The `MessageOfTheDayInfo` entity contains information about the message of the d
 * `starts_at`: Date, when the message will be first displayed
 * `expires_at`: Date, after which the message will not be displayed anymore
 * `html`: String, containing the HTML-formatted message
+
+### <a id="message-input"> MessageInput
+
+The `MessageInput` entity contains information about setting the message.
+
+| Field Name     | Description                                   |
+|----------------|-----------------------------------------------|
+| `message`      | The message to display in the banner.         |
+| `expire_after` | The duration after which the message expires. |
 
 
 [Back to @PLUGIN@ documentation index][index]
