@@ -16,8 +16,10 @@ package com.googlesource.gerrit.plugins.messageoftheday;
 
 import static com.google.gerrit.server.config.ConfigResource.CONFIG_KIND;
 
+import com.google.gerrit.extensions.annotations.Exports;
 import com.google.gerrit.extensions.annotations.PluginData;
 import com.google.gerrit.extensions.annotations.PluginName;
+import com.google.gerrit.extensions.config.CapabilityDefinition;
 import com.google.gerrit.extensions.restapi.RestApiModule;
 import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.gerrit.server.config.SitePaths;
@@ -42,11 +44,15 @@ class Module extends AbstractModule {
 
   @Override
   protected void configure() {
+    bind(CapabilityDefinition.class)
+        .annotatedWith(Exports.named(UpdateBannerCapability.NAME))
+        .to(UpdateBannerCapability.class);
     install(
         new RestApiModule() {
           @Override
           protected void configure() {
             get(CONFIG_KIND, "message").to(GetMessage.class);
+            post(CONFIG_KIND, "message").to(SetMessage.class);
           }
         });
   }
