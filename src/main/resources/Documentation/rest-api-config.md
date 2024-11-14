@@ -38,6 +38,30 @@ is returned that contains the message and associated metadata.
   }
 ```
 
+### Set Message
+_POST /config/server/@PLUGIN@~message/_
+
+Sets the message of the day. Only users with `Update Banner` capability on the
+server can call this API. In the request body, the data must be provided as
+a [MessageInput](#messageinput) entity.
+
+#### Request
+
+```
+  POST /config/server/@PLUGIN@~message/ HTTP/1.0
+  Content-Type: application/json; charset=UTF-8
+  {
+    "message": "sample announcement",
+    "expires_at": "20241126:1458"
+  }
+```
+
+#### Response
+
+```
+  HTTP/1.1 200 OK
+```
+
 ## JSON Entities
 
 ### MessageOfTheDayInfo
@@ -49,6 +73,14 @@ The `MessageOfTheDayInfo` entity contains information about the message of the d
 * `expires_at`: Date, after which the message will not be displayed anymore
 * `html`: String, containing the HTML-formatted message
 
+### MessageInput
+
+The `MessageInput` entity contains information about setting the message.
+
+| Field Name   |          | Description                                                                                               |
+|--------------|----------|-----------------------------------------------------------------------------------------------------------|
+| `message`    |          | The message to display in the banner.                                                                     |
+| `expires_at` | optional | Date, after which the message will not be displayed anymore. Must be specified in `yyyyMMdd:HHmm` format. |
 
 [Back to @PLUGIN@ documentation index][index]
 
