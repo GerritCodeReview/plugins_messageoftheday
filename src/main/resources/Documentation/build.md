@@ -1,12 +1,13 @@
-Build
-=====
+# Build
 
 This plugin can be built with Bazel, and two build modes are supported:
 
 * Standalone
 * In Gerrit tree
 
-Standalone build mode is recommended, as this mode doesn't require local Gerrit tree to exist. Moreover, there are some limitations and additional manual steps required when building in Gerrit tree mode (see corresponding sections).
+Standalone build mode is recommended, as this mode doesn't require local Gerrit
+tree to exist. Moreover, there are some limitations and additional manual steps
+required when building in Gerrit tree mode (see corresponding sections).
 
 ## Build standalone
 
@@ -40,8 +41,7 @@ This project can be imported into the Eclipse IDE:
   ./tools/eclipse/project.sh
 ```
 
-Build in Gerrit tree
---------------------
+## Build in Gerrit tree
 
 Clone or link this plugin to the plugins directory of Gerrit's source
 tree, and issue the command:

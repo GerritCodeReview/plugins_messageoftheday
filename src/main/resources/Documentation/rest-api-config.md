@@ -1,5 +1,4 @@
-@PLUGIN@ - /config/ REST API
-============================
+# @PLUGIN@ - /config/ REST API
 
 This page describes the REST endpoints that are added by the @PLUGIN@
 plugin.
@@ -7,10 +6,9 @@ plugin.
 Please also take note of the general information on the
 [REST API](../../../Documentation/rest-api.html).
 
-<a id="config-endpoints"> Config Endpoints
-------------------------------------------
+## Config Endpoints
 
-### <a id="get-menus"> Get Menus
+### Get Menus
 _GET /config/server/@PLUGIN@~message/_
 
 Gets the message of the day.
@@ -21,7 +19,7 @@ Gets the message of the day.
   GET /config/server/@PLUGIN@~message/ HTTP/1.0
 ```
 
-As response a [MessageOfTheDayInfo](./rest-api-config.md#MessageOfTheDayInfo) entity
+As response a [MessageOfTheDayInfo](#messageofthedayinfo) entity
 is returned that contains the message and associated metadata.
 
 #### Response
@@ -39,6 +37,8 @@ is returned that contains the message and associated metadata.
     "html": "hello you!"
   }
 ```
+
+## JSON Entities
 
 ### MessageOfTheDayInfo
 
