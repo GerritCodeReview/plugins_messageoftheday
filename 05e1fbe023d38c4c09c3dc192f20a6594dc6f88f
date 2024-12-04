@@ -18,6 +18,40 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2402160c_a40a5b5b",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/MessageInput.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-12-04T23:25:10Z",
+      "side": 1,
+      "message": "Add `startsAt` too?",
+      "revId": "05e1fbe023d38c4c09c3dc192f20a6594dc6f88f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fa5c267_1961957e",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/SetMessage.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-12-04T23:25:10Z",
+      "side": 1,
+      "message": "Did you want to add support for a default id when one isn\u0027t set yet?",
+      "revId": "05e1fbe023d38c4c09c3dc192f20a6594dc6f88f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "dc716412_b4c8a748",
