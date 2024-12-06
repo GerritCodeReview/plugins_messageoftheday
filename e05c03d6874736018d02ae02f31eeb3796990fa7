@@ -16,6 +16,24 @@
       "message": "Is this to prevent keyboard shortcuts from activating when a user types into the text box? Or is it for some other purpose?",
       "revId": "e05c03d6874736018d02ae02f31eeb3796990fa7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3503a2ab_518dc4f2",
+        "filename": "gr-messageoftheday/gr-messageoftheday-edit.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-12-06T19:55:48Z",
+      "side": 1,
+      "message": "It does not seem to be affecting keyboard shortcuts. It probably stops events from propagating. We don\u0027t have any events in this plugin. The UI functionality after removing it seems to be working as expected, so I have removed it.",
+      "parentUuid": "9c1939da_7b7dd5f5",
+      "revId": "e05c03d6874736018d02ae02f31eeb3796990fa7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
