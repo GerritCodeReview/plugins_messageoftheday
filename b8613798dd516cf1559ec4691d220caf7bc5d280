@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7903df5f_5f0dcfec",
+        "filename": "src/main/resources/Documentation/rest-api-config.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-12-06T20:36:00Z",
+      "side": 1,
+      "message": "nit: Unexpected line wrapping?",
+      "revId": "b8613798dd516cf1559ec4691d220caf7bc5d280",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
