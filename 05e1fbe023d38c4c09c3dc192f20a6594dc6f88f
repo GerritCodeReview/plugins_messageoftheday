@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71c12362_45e17b81",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-12-06T19:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c57e0e03_7d3076e3",
+      "revId": "05e1fbe023d38c4c09c3dc192f20a6594dc6f88f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2402160c_a40a5b5b",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d18e87d4_23f706e5",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/MessageInput.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-12-06T19:19:40Z",
+      "side": 1,
+      "message": "I didn\u0027t add that because I wasn\u0027t sure if I should add `startsAt` or `startsAfter`. For expire, `expireAfter` made sense from the UI\u0027s perspective. Maybe we can tackle that in a followup change when we want to show the start-time also in the UI?",
+      "parentUuid": "2402160c_a40a5b5b",
+      "revId": "05e1fbe023d38c4c09c3dc192f20a6594dc6f88f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1fa5c267_1961957e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/SetMessage.java",
         "patchSetId": 2
@@ -48,6 +84,24 @@
       "writtenOn": "2024-12-04T23:25:10Z",
       "side": 1,
       "message": "Did you want to add support for a default id when one isn\u0027t set yet?",
+      "revId": "05e1fbe023d38c4c09c3dc192f20a6594dc6f88f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23bc848c_486a4abb",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/SetMessage.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-12-06T19:19:40Z",
+      "side": 1,
+      "message": "Yes, done.",
+      "parentUuid": "1fa5c267_1961957e",
       "revId": "05e1fbe023d38c4c09c3dc192f20a6594dc6f88f",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
@@ -98,6 +152,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0f5de8d_3be816b7",
+        "filename": "src/main/resources/Documentation/rest-api-config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-12-06T19:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "49b0f6dc_ebd54d64",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 24,
+        "endChar": 60
+      },
+      "revId": "05e1fbe023d38c4c09c3dc192f20a6594dc6f88f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec31ca6b_a0b9b3d8",
@@ -111,6 +189,30 @@
       "writtenOn": "2024-12-04T21:37:17Z",
       "side": 1,
       "message": "Use the auto-generated id tag\n\n```suggestion\n### Set Message\n```",
+      "range": {
+        "startLine": 43,
+        "startChar": 3,
+        "endLine": 43,
+        "endChar": 24
+      },
+      "revId": "05e1fbe023d38c4c09c3dc192f20a6594dc6f88f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ced4f3bf_aec76fb7",
+        "filename": "src/main/resources/Documentation/rest-api-config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-12-06T19:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec31ca6b_a0b9b3d8",
       "range": {
         "startLine": 43,
         "startChar": 3,
@@ -144,6 +246,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e992b00e_46b55812",
+        "filename": "src/main/resources/Documentation/rest-api-config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-12-06T19:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f92c23d_84e205c4",
+      "range": {
+        "startLine": 48,
+        "startChar": 18,
+        "endLine": 48,
+        "endChar": 31
+      },
+      "revId": "05e1fbe023d38c4c09c3dc192f20a6594dc6f88f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ead58d7_3d2b4ba7",
@@ -161,6 +287,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52df6645_29ca6061",
+        "filename": "src/main/resources/Documentation/rest-api-config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-12-06T19:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ead58d7_3d2b4ba7",
+      "revId": "05e1fbe023d38c4c09c3dc192f20a6594dc6f88f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "853cf2ce_dca1e221",
@@ -174,6 +318,30 @@
       "writtenOn": "2024-12-04T21:37:17Z",
       "side": 1,
       "message": "Use the auto-generated id tag (`messageinput`)\n```suggestion\n### MessageInput\n```",
+      "range": {
+        "startLine": 86,
+        "startChar": 3,
+        "endLine": 86,
+        "endChar": 26
+      },
+      "revId": "05e1fbe023d38c4c09c3dc192f20a6594dc6f88f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dbb1621_39ff5d7b",
+        "filename": "src/main/resources/Documentation/rest-api-config.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-12-06T19:19:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "853cf2ce_dca1e221",
       "range": {
         "startLine": 86,
         "startChar": 3,
