@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f80f031d_e0be9054",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/MessageInput.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-12-06T20:41:42Z",
+      "side": 1,
+      "message": "\u003e \u003e I didn\u0027t add that because I wasn\u0027t sure if I should add `startsAt` or `startsAfter`. For expire, `expireAfter` made sense from the UI\u0027s perspective.\n\u003e \n\u003e Oh, I hadn\u0027t even noticed that you changed the config name here. I don\u0027t follow why `expireAfter` is better for the UI than `expireAt`. Can you explain that? Basically, why aren\u0027t we matching the fields in `MessageOfTheDayInfo`? (you\u0027d want to make sure time zones are handled correctly when it gets to the backend, but the UI could do the conversion of relative datetimes to absolute datetimes)\n\nYea, I didn\u0027t want to do that conversion in the front-end code. But, I see your point, on why it can be confusing to have different field names. Let me attempt to fix that.\n\n\u003e \n\u003e \u003e Maybe we can tackle that in a followup change when we want to show the start-time also in the UI?\n\u003e \n\u003e If we have a clear enough idea of how the API could be used, I\u0027d rather do that up front and not keep updating the API. For `startsAt` it\u0027s probably ok to delay, but we should make sure that adding it later won\u0027t cause problems. Same for `id`.",
+      "parentUuid": "0f297f89_814e454c",
+      "revId": "05e1fbe023d38c4c09c3dc192f20a6594dc6f88f",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1fa5c267_1961957e",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/SetMessage.java",
         "patchSetId": 2
