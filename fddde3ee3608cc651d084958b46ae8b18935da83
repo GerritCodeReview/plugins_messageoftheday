@@ -33,6 +33,41 @@
       "message": "Preferably this should be switched to using lit.",
       "revId": "fddde3ee3608cc651d084958b46ae8b18935da83",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ffb3ca3_9fc0225a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-12-06T20:37:54Z",
+      "side": 1,
+      "message": "Yes, but I think there\u0027s no standalone build support for using lit, correct?",
+      "parentUuid": "c7b8417d_fa204130",
+      "revId": "fddde3ee3608cc651d084958b46ae8b18935da83",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54dc850c_0b7ecad5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2024-12-06T20:37:54Z",
+      "side": 1,
+      "message": "Needs the `about.md` content from the parent change moved into this change",
+      "revId": "fddde3ee3608cc651d084958b46ae8b18935da83",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
