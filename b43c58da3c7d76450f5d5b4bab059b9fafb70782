@@ -16,6 +16,24 @@
       "message": "We should throw an error if they provided a message, but no `expiresAt` and the config doesn\u0027t already have an `expiresAt` set.",
       "revId": "b43c58da3c7d76450f5d5b4bab059b9fafb70782",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15762045_6d1bec7a",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/SetMessage.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2024-12-17T16:06:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfdc56b9_11a43c9a",
+      "revId": "b43c58da3c7d76450f5d5b4bab059b9fafb70782",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
