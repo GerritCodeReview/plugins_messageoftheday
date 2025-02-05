@@ -71,8 +71,12 @@ public class SetMessage implements RestModifyView<ConfigResource, MessageInput> 
 
   @Override
   public Response<?> apply(ConfigResource resource, MessageInput input)
-      throws AuthException, BadRequestException, ResourceConflictException,
-          PermissionBackendException, ConfigInvalidException, UnprocessableEntityException {
+      throws AuthException,
+          BadRequestException,
+          ResourceConflictException,
+          PermissionBackendException,
+          ConfigInvalidException,
+          UnprocessableEntityException {
     permissionBackend.currentUser().check(permission);
 
     if (input.message == null) {
@@ -100,11 +104,12 @@ public class SetMessage implements RestModifyView<ConfigResource, MessageInput> 
       try {
         time =
             ZonedDateTime.parse(
-                    input.expiresAt, DateTimeFormatter.ofPattern("MM/dd/yyyy, hh:mm a z"))
+                    input.expiresAt, DateTimeFormatter.ofPattern("MM/dd/yyyy, hh:mm a [O][z]"))
                 .withZoneSameInstant(serverZoneId);
       } catch (IllegalArgumentException e) {
         throw new BadRequestException(
-            "Invalid value for expires_at. It must be provided in 'MM/dd/yyyy, hh:mm a z' format");
+            "Invalid value for expires_at. It must be provided in 'MM/dd/yyyy, hh:mm a z' or"
+                + " 'MM/dd/yyyy, hh:mm a O' format");
       }
       cfg.setString(
           SECTION_MESSAGE,
