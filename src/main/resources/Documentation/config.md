@@ -33,16 +33,29 @@ message.expiresAt
 	The format of this field is `yyyyMMdd:HHmm`.
 
 ## `gerrit.config`
+For file based configuration:
 ```
   [plugin "@PLUGIN@"]
     configDir = /full/path/to/configDir
     dataDir = /full/path/to/htmlContentDir
 ```
+
+For Git based configuration:
+```
+  [plugin "@PLUGIN@"]
+    configGit = motd
+```
+
 plugin.@PLUGIN@.configDir
 :	The path where `@PLUGIN@.config` is located. Defaults to site's `etc/` directory.
 
 plugin.@PLUGIN@.dataDir
 :	The path where `<message.id>.html` is located. Defaults to site's `data/@PLUGIN@/` directory.
+
+plugin.@PLUGIN@.configGit
+: The name of the Git repository where `@PLUGIN.config` and `<message.id>.html` are located.
+  Both `@PLUGIN.config` and `<message.id>.html` must be placed in the `master`
+  branch of this repository, in the root directory.
 
 ## Message content and location
 

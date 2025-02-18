@@ -27,26 +27,20 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.Optional;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
 import org.eclipse.jgit.util.FS;
 
 @Singleton
-public class FileBasedMessageStore implements MessageStore {
+public class FileBasedMessageStore extends AbstractMessageStore {
   private static final FluentLogger logger = FluentLogger.forEnclosingClass();
 
   private static final String SECTION_MESSAGE = "message";
   private static final String KEY_ID = "id";
-  private static final String KEY_STARTS_AT = "startsAt";
   private static final String KEY_EXPIRES_AT = "expiresAt";
-
-  private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd:HHmm");
 
   private final File cfgFile;
   private final Path dataDir;
@@ -58,58 +52,27 @@ public class FileBasedMessageStore implements MessageStore {
   }
 
   @Override
-  public Optional<MessageOfTheDayInfo> getActiveMessage() throws MessageStoreException {
-    FileBasedConfig cfg = loadConfig();
-
-    String htmlFileId = cfg.getString(SECTION_MESSAGE, null, KEY_ID);
-    if (Strings.isNullOrEmpty(htmlFileId)) {
-      logger.atWarning().log("id not defined, no message will be shown");
-      return Optional.empty();
-    }
-
-    MessageOfTheDayInfo motd = new MessageOfTheDayInfo();
+  protected FileBasedConfig loadConfig() throws MessageStoreException {
+    FileBasedConfig cfg = new FileBasedConfig(cfgFile, FS.DETECTED);
     try {
-      motd.expiresAt = DATE_FORMAT.parse(cfg.getString(SECTION_MESSAGE, null, KEY_EXPIRES_AT));
-    } catch (ParseException | NullPointerException e) {
-      logger.atWarning().log("expiresAt not defined, no message will be shown");
-      return Optional.empty();
+      cfg.load();
+    } catch (ConfigInvalidException | IOException e) {
+      throw new MessageStoreException("plugin cfg is invalid or could not be loaded", e);
     }
-
-    try {
-      String startsAt = cfg.getString(SECTION_MESSAGE, null, KEY_STARTS_AT);
-      motd.startsAt = Strings.isNullOrEmpty(startsAt) ? new Date() : DATE_FORMAT.parse(startsAt);
-    } catch (ParseException e) {
-      motd.startsAt = new Date();
-    }
-
-    if (motd.startsAt.compareTo(new Date()) > 0 || motd.expiresAt.compareTo(new Date()) < 0) {
-      logger.atFine().log("Current date/time is outside of the startsAt..expiresAt interval");
-      return Optional.empty();
-    }
-
-    try {
-      motd.html = new String(Files.readAllBytes(dataDir.resolve(htmlFileId + ".html")), UTF_8);
-    } catch (IOException e1) {
-      logger.atWarning().log(
-          "No HTML-file was found for message %s, no message will be shown", htmlFileId);
-      return Optional.empty();
-    }
-
-    motd.id = Integer.toString(motd.html.hashCode());
-    return Optional.of(motd);
+    return cfg;
   }
 
   @Override
-  public void setMessage(String message) throws MessageStoreException {
-    setMessage(message, Optional.empty());
+  protected String loadMessage(String id) throws MessageStoreException {
+    try {
+      return new String(Files.readAllBytes(dataDir.resolve(id + ".html")), UTF_8);
+    } catch (IOException e) {
+      throw new MessageStoreException(e.getMessage(), e);
+    }
   }
 
   @Override
-  public void setMessage(String message, ZonedDateTime expiresAt) throws MessageStoreException {
-    setMessage(message, Optional.of(expiresAt));
-  }
-
-  private void setMessage(String message, Optional<ZonedDateTime> expiresAt)
+  protected void setMessage(String message, Optional<ZonedDateTime> expiresAt)
       throws MessageStoreException {
     FileBasedConfig cfg = loadConfig();
 
@@ -149,15 +112,5 @@ public class FileBasedMessageStore implements MessageStore {
     } catch (IOException e) {
       throw new MessageStoreException("Failed to save plugin config", e);
     }
-  }
-
-  private FileBasedConfig loadConfig() throws MessageStoreException {
-    FileBasedConfig cfg = new FileBasedConfig(cfgFile, FS.DETECTED);
-    try {
-      cfg.load();
-    } catch (ConfigInvalidException | IOException e) {
-      throw new MessageStoreException("plugin cfg is invalid or could not be loaded", e);
-    }
-    return cfg;
   }
 }
