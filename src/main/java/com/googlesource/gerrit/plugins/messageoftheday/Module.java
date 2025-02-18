@@ -17,11 +17,24 @@ package com.googlesource.gerrit.plugins.messageoftheday;
 import static com.google.gerrit.server.config.ConfigResource.CONFIG_KIND;
 
 import com.google.gerrit.extensions.annotations.Exports;
+import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.config.CapabilityDefinition;
 import com.google.gerrit.extensions.restapi.RestApiModule;
+import com.google.gerrit.server.config.PluginConfigFactory;
 import com.google.inject.AbstractModule;
+import com.google.inject.Inject;
 
 class Module extends AbstractModule {
+  private static final String CONFIG_GIT = "configGit";
+
+  private final PluginConfigFactory cfg;
+  private final String pluginName;
+
+  @Inject
+  Module(PluginConfigFactory cfg, @PluginName String pluginName) {
+    this.cfg = cfg;
+    this.pluginName = pluginName;
+  }
 
   @Override
   protected void configure() {
@@ -36,6 +49,12 @@ class Module extends AbstractModule {
             post(CONFIG_KIND, "message").to(SetMessage.class);
           }
         });
-    install(new FileBasedModule());
+
+    String configGit = cfg.getFromGerritConfig(pluginName).getString(CONFIG_GIT);
+    if (configGit != null) {
+      install(new GitBasedModule(configGit));
+    } else {
+      install(new FileBasedModule());
+    }
   }
 }
