@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87da2079_0ef402d0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/GitBasedMessageStore.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2025-02-19T15:41:15Z",
+      "side": 1,
+      "message": "remove this, probably a leftover from some debugging code",
+      "revId": "00e99a6a9d11c386667cb4cf15baa5c557ca99fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
