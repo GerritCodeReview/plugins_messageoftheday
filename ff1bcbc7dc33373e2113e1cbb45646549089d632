@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "574777b1_e7028872",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2025-02-19T12:49:46Z",
+      "side": 1,
+      "message": "add some tests ?",
+      "revId": "ff1bcbc7dc33373e2113e1cbb45646549089d632",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f598c07d_3065f31f",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/MessageStore.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2025-02-19T12:49:46Z",
+      "side": 1,
+      "message": "I think reading the config for expiresAt should not be responsibility of the MessageStore. I\u0027d move up reading a potentially configured expiresAt to the caller (line 71 of SetMessage) and remove this method.\n\nMaybe it would make sense to introduce a hard coded default of e.g. \"one day from now\" for expiresAt if it\u0027s neither configured nor passed as a param.",
+      "revId": "ff1bcbc7dc33373e2113e1cbb45646549089d632",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
