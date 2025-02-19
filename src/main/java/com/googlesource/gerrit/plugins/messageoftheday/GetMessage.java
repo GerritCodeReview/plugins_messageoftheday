@@ -14,30 +14,20 @@
 
 package com.googlesource.gerrit.plugins.messageoftheday;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-
 import com.google.common.base.Strings;
-import com.google.gerrit.extensions.annotations.PluginName;
 import com.google.gerrit.extensions.restapi.Response;
 import com.google.gerrit.extensions.restapi.RestReadView;
 import com.google.gerrit.server.config.ConfigResource;
 import com.google.inject.Inject;
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import org.eclipse.jgit.errors.ConfigInvalidException;
-import org.eclipse.jgit.storage.file.FileBasedConfig;
-import org.eclipse.jgit.util.FS;
+import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class GetMessage implements RestReadView<ConfigResource> {
   private static final String SECTION_MESSAGE = "message";
-  private static final String KEY_ID = "id";
   private static final String KEY_STARTS_AT = "startsAt";
   private static final String KEY_EXPIRES_AT = "expiresAt";
 
@@ -45,31 +35,26 @@ public class GetMessage implements RestReadView<ConfigResource> {
 
   private static final Logger log = LoggerFactory.getLogger(GetMessage.class);
 
-  private final File cfgFile;
-  private final Path dataDirPath;
-
-  private volatile FileBasedConfig cfg;
+  private final MessageStore messageStore;
 
   @Inject
-  public GetMessage(
-      @PluginName String pluginName, @ConfigFile File cfgFile, @DataDir Path dataDirPath) {
-    this.dataDirPath = dataDirPath;
-    this.cfgFile = cfgFile;
+  public GetMessage(MessageStore messageStore) {
+    this.messageStore = messageStore;
   }
 
   @Override
   public Response<MessageOfTheDayInfo> apply(ConfigResource rsrc) {
     MessageOfTheDayInfo motd = new MessageOfTheDayInfo();
-    cfg = new FileBasedConfig(cfgFile, FS.DETECTED);
+    ConfiguredMessage configuredMessage;
     try {
-      cfg.load();
-    } catch (ConfigInvalidException | IOException e) {
-      return null;
+      configuredMessage = messageStore.getConfiguredMessage();
+    } catch (MessageStoreException e) {
+      log.warn(e.getMessage());
+      return Response.none();
     }
-
-    String htmlFileId = cfg.getString(SECTION_MESSAGE, null, KEY_ID);
-    if (Strings.isNullOrEmpty(htmlFileId)) {
-      log.warn("id not defined, no message will be shown");
+    Config cfg = configuredMessage.config();
+    String message = configuredMessage.message();
+    if (cfg == null || message == null) {
       return Response.none();
     }
 
@@ -92,15 +77,7 @@ public class GetMessage implements RestReadView<ConfigResource> {
       return Response.none();
     }
 
-    try {
-      motd.html = new String(Files.readAllBytes(dataDirPath.resolve(htmlFileId + ".html")), UTF_8);
-    } catch (IOException e1) {
-      log.warn(
-          String.format(
-              "No HTML-file was found for message %s, no message will be shown", htmlFileId));
-      return Response.none();
-    }
-
+    motd.html = message;
     motd.id = Integer.toString(motd.html.hashCode());
     return Response.ok(motd);
   }
