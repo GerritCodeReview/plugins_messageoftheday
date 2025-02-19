@@ -44,6 +44,7 @@ class Module extends AbstractModule {
 
   @Override
   protected void configure() {
+    bind(MessageStore.class).to(FileBasedMessageStore.class);
     bind(CapabilityDefinition.class)
         .annotatedWith(Exports.named(UpdateBannerCapability.NAME))
         .to(UpdateBannerCapability.class);

@@ -16,8 +16,6 @@ package com.googlesource.gerrit.plugins.messageoftheday;
 
 import com.google.common.base.Strings;
 import com.google.common.flogger.FluentLogger;
-import com.google.common.io.CharSink;
-import com.google.common.io.Files;
 import com.google.gerrit.extensions.restapi.AuthException;
 import com.google.gerrit.extensions.restapi.BadRequestException;
 import com.google.gerrit.extensions.restapi.ResourceConflictException;
@@ -30,18 +28,13 @@ import com.google.gerrit.server.permissions.PermissionBackend;
 import com.google.gerrit.server.permissions.PermissionBackendException;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.PersonIdent;
-import org.eclipse.jgit.storage.file.FileBasedConfig;
-import org.eclipse.jgit.util.FS;
 
 public class SetMessage implements RestModifyView<ConfigResource, MessageInput> {
   private static final FluentLogger logger = FluentLogger.forEnclosingClass();
@@ -53,24 +46,19 @@ public class SetMessage implements RestModifyView<ConfigResource, MessageInput> 
   private static final DateTimeFormatter INPUT_DATE_FORMAT =
       DateTimeFormatter.ofPattern(INPUT_DATE_FORMAT_PATTERN, Locale.ENGLISH);
 
-  private final File cfgFile;
-  private final Path dataDirPath;
+  private final MessageStore messageStore;
   private final ZoneId serverZoneId;
   private final PermissionBackend permissionBackend;
   private final UpdateBannerPermission permission;
 
-  private volatile FileBasedConfig cfg;
-
   @Inject
   public SetMessage(
-      @ConfigFile File cfgFile,
-      @DataDir Path dataDirPath,
+      MessageStore messageStore,
       @GerritPersonIdent Provider<PersonIdent> serverIdent,
       PermissionBackend permissionBackend,
       UpdateBannerPermission permission) {
-    this.dataDirPath = dataDirPath;
+    this.messageStore = messageStore;
     this.serverZoneId = serverIdent.get().getZoneId();
-    this.cfgFile = cfgFile;
     this.permission = permission;
     this.permissionBackend = permissionBackend;
   }
@@ -89,21 +77,20 @@ public class SetMessage implements RestModifyView<ConfigResource, MessageInput> 
       throw new BadRequestException("message is required");
     }
 
-    cfg = new FileBasedConfig(cfgFile, FS.DETECTED);
+    ConfiguredMessage configuredMessage;
     try {
-      cfg.load();
-    } catch (ConfigInvalidException | IOException e) {
-      throw new UnprocessableEntityException("plugin cfg is invalid or could not be loaded", e);
+      configuredMessage = messageStore.getConfiguredMessage();
+    } catch (MessageStoreException e) {
+      throw new UnprocessableEntityException(e.getMessage(), e);
     }
+
+    Config cfg = configuredMessage.config();
 
     String id = cfg.getString(SECTION_MESSAGE, null, KEY_ID);
     if (Strings.isNullOrEmpty(id)) {
       logger.atInfo().log("'id' is not configured in the plugin cfg. Choosing a default id.");
-      id = "default";
+      cfg.setString(SECTION_MESSAGE, null, KEY_ID, "default");
     }
-
-    Path path = dataDirPath.resolve(id + ".html");
-    CharSink sink = Files.asCharSink(path.toFile(), StandardCharsets.UTF_8);
 
     if (input.expiresAt != null) {
       ZonedDateTime time;
@@ -122,7 +109,6 @@ public class SetMessage implements RestModifyView<ConfigResource, MessageInput> 
           null,
           KEY_EXPIRES_AT,
           time.format(DateTimeFormatter.ofPattern("yyyyMMdd:HHmm")));
-      cfg.setString(SECTION_MESSAGE, null, KEY_ID, id);
     } else {
       String expiredAt = cfg.getString(SECTION_MESSAGE, null, KEY_EXPIRES_AT);
       if (expiredAt == null) {
@@ -133,17 +119,9 @@ public class SetMessage implements RestModifyView<ConfigResource, MessageInput> 
     }
 
     try {
-      sink.write(input.message);
-    } catch (IOException e) {
-      throw new UnprocessableEntityException("Failed to save message", e);
-    }
-
-    if (input.expiresAt != null) {
-      try {
-        cfg.save();
-      } catch (IOException e) {
-        throw new UnprocessableEntityException("Failed to save plugin config", e);
-      }
+      messageStore.saveConfiguredMessage(ConfiguredMessage.create(cfg, input.message));
+    } catch (MessageStoreException e) {
+      throw new UnprocessableEntityException(e.getMessage(), e);
     }
 
     return Response.ok();
