@@ -28,6 +28,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import org.eclipse.jgit.errors.ConfigInvalidException;
+import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
 import org.eclipse.jgit.util.FS;
 
@@ -83,6 +84,8 @@ public class FileBasedMessageStore implements MessageStore {
   public void saveConfiguredMessage(ConfiguredMessage message) throws MessageStoreException {
     FileBasedConfig configFile = new FileBasedConfig(message.config(), cfgFile, FS.DETECTED);
 
+    addAll(configFile, message.config());
+
     String id = configFile.getString(SECTION_MESSAGE, null, KEY_ID);
     try {
       Path path = dataDir.resolve(id + ".html");
@@ -93,9 +96,17 @@ public class FileBasedMessageStore implements MessageStore {
     }
 
     try {
+      configFile.load();
       configFile.save();
-    } catch (IOException e) {
+    } catch (IOException | ConfigInvalidException e) {
       throw new MessageStoreException("Failed to save config", e);
+    }
+  }
+
+  private void addAll(FileBasedConfig configFile, Config config) {
+    for (String key : config.getNames(SECTION_MESSAGE, null)) {
+      configFile.setString(
+          SECTION_MESSAGE, null, key, config.getString(SECTION_MESSAGE, null, key));
     }
   }
 }
