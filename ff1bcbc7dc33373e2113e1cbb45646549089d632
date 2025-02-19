@@ -51,6 +51,24 @@
       "parentUuid": "f598c07d_3065f31f",
       "revId": "ff1bcbc7dc33373e2113e1cbb45646549089d632",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71651379_2e50e211",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/MessageStore.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2025-02-19T15:24:21Z",
+      "side": 1,
+      "message": "yes, exactly, I think MessageStore should just handle storing messages which would make this class simpler.",
+      "parentUuid": "1606d789_0d9f4d29",
+      "revId": "ff1bcbc7dc33373e2113e1cbb45646549089d632",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
