@@ -33,6 +33,24 @@
       "message": "I think reading the config for expiresAt should not be responsibility of the MessageStore. I\u0027d move up reading a potentially configured expiresAt to the caller (line 71 of SetMessage) and remove this method.\n\nMaybe it would make sense to introduce a hard coded default of e.g. \"one day from now\" for expiresAt if it\u0027s neither configured nor passed as a param.",
       "revId": "ff1bcbc7dc33373e2113e1cbb45646549089d632",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1606d789_0d9f4d29",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/MessageStore.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2025-02-19T14:04:26Z",
+      "side": 1,
+      "message": "The `getActiveMessage()` method must read `expiresAt` if it wants to return the active (means non-expired) message. In that we already assumes that `MessageStore` understands the semantics of the plugin config like message expiration etc...\n\nIIUC, your proposal is that the `MessageStore` shall only store and retrieve the config file and the message(s) file(s) and not provide any interpretation of the data? This is worth exploring as it may indeed simplify the design.",
+      "parentUuid": "f598c07d_3065f31f",
+      "revId": "ff1bcbc7dc33373e2113e1cbb45646549089d632",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
