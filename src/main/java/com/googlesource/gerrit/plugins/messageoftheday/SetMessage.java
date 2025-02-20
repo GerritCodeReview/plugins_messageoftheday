@@ -114,7 +114,7 @@ public class SetMessage implements RestModifyView<ConfigResource, MessageInput> 
     }
 
     try {
-      messageStore.saveConfiguredMessage(ConfiguredMessage.create(cfg, input.message));
+      messageStore.saveConfiguredMessage(new ConfiguredMessage(cfg, input.message));
     } catch (MessageStoreException e) {
       throw new UnprocessableEntityException(e.getMessage(), e);
     }

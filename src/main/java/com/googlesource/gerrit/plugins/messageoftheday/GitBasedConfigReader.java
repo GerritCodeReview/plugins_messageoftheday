@@ -123,7 +123,7 @@ public class GitBasedConfigReader implements GitReferenceUpdatedListener {
         BinaryResult result =
             fileContentUtil.getContent(configRepo, state.get(), commitId, id + ".html");
         String message = result.asString();
-        return CachedConfig.create(config, message, commitId);
+        return new CachedConfig(config, message, commitId);
       } catch (ResourceNotFoundException e) {
         logger.atWarning().withCause(e).log("Loading failed");
         return CachedConfig.empty();
