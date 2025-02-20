@@ -69,6 +69,24 @@
       "parentUuid": "1606d789_0d9f4d29",
       "revId": "ff1bcbc7dc33373e2113e1cbb45646549089d632",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8c08a0c_2ceccbb8",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/MessageStore.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2025-02-20T12:39:12Z",
+      "side": 1,
+      "message": "OK, I reworked the series according to this discussion. Now the `MessageStore` only reads and saves the configuration. The only logic that is still kept in the message store is to use the value of the `message.id` from the config as the file name to save the message to.",
+      "parentUuid": "71651379_2e50e211",
+      "revId": "ff1bcbc7dc33373e2113e1cbb45646549089d632",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
