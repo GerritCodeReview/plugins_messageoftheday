@@ -38,6 +38,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d8b61a80_10b41fe0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2025-02-20T10:06:38Z",
+      "side": 1,
+      "message": "I would rename this to `gitRepository`\n\n```suggestion\n  gitRepository \u003d motd\n```",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 11
+      },
+      "revId": "00e99a6a9d11c386667cb4cf15baa5c557ca99fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "87da2079_0ef402d0",
         "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/GitBasedMessageStore.java",
         "patchSetId": 4
