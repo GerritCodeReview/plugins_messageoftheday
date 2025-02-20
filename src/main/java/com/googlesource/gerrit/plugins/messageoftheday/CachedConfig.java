@@ -14,23 +14,11 @@
 
 package com.googlesource.gerrit.plugins.messageoftheday;
 
-import com.google.auto.value.AutoValue;
 import org.eclipse.jgit.lib.Config;
 import org.eclipse.jgit.lib.ObjectId;
 
-@AutoValue
-public abstract class CachedConfig {
+public record CachedConfig(Config config, String message, ObjectId commitId) {
   public static CachedConfig empty() {
-    return new AutoValue_CachedConfig(null, null, null);
+    return new CachedConfig(null, null, null);
   }
-
-  public static CachedConfig create(Config config, String message, ObjectId commitId) {
-    return new AutoValue_CachedConfig(config, message, commitId);
-  }
-
-  public abstract Config config();
-
-  public abstract String message();
-
-  public abstract ObjectId commitId();
 }
