@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28fddbb0_9beb9247",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2025-02-20T01:37:19Z",
+      "side": 1,
+      "message": "JFYI, we attempted this initially but didn\u0027t move forward with it as saving the message in NFS seemed sufficient to make it multi-primary friendly for us. We didn\u0027t have the usecase of \u0027reviewing\u0027 the message.\n\n434557: Allow reading message content and config from a repo | https://gerrit-review.googlesource.com/c/plugins/messageoftheday/+/434557",
+      "revId": "00e99a6a9d11c386667cb4cf15baa5c557ca99fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87da2079_0ef402d0",
