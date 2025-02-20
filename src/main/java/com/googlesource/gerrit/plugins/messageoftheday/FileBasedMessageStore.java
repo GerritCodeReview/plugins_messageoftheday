@@ -73,7 +73,7 @@ public class FileBasedMessageStore implements MessageStore {
 
   private String loadMessage(String id) {
     try {
-      return new String(Files.readAllBytes(dataDir.resolve(id + ".html")), UTF_8);
+      return Files.readString(dataDir.resolve(id + ".html"), UTF_8);
     } catch (IOException e1) {
       logger.atWarning().log("No HTML-file was found for message %s, no message will be shown", id);
       return null;
