@@ -34,6 +34,24 @@
       "parentUuid": "d1d4ecd8_a02a73a9",
       "revId": "ca546e1197767125ed45fbadaea7edeb690b491c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac4a6eef_00b7e676",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/SetMessage.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2025-02-20T15:35:20Z",
+      "side": 1,
+      "message": "I mean Gerrit core REST API uses timestamps in this format `yyyy-mm-dd hh:mm:ss.fffffffff` and always uses `UTC`. The UI can do whatever it needs to do including converting them to another timezone. We should either respect the conventions from Gerrit core or we use the exact format as in the config file.",
+      "parentUuid": "04a053bd_481b440d",
+      "revId": "ca546e1197767125ed45fbadaea7edeb690b491c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ],
   "submitRequirementResults": [
