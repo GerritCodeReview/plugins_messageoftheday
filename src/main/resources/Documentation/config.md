@@ -23,14 +23,14 @@ message.startsAt
 :	Start date:time for the current message of the day. The message will be
 	displayed starting from and including that date:time. The message will not
 	be displayed before that date:time. This field is optional.
-	The format of this field is `yyyyMMdd:HHmm`.
+	The format of this field is `yyyyMMdd:HHmm`, Gerrit server's timezone is assumed.
 
 message.expiresAt
 :	Expiration date:time for the current message of the day. The message will be
 	displayed up to and including that date:time. The message will not be displayed
 	any more after that date:time. This field is required. If not set, the message
 	will not be displayed.
-	The format of this field is `yyyyMMdd:HHmm`.
+	The format of this field is `yyyyMMdd:HHmm`, Gerrit server's timezone is assumed.
 
 ## `gerrit.config`
 For file based configuration:
