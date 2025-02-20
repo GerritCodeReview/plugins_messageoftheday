@@ -28,6 +28,7 @@ import org.slf4j.LoggerFactory;
 
 public class GetMessage implements RestReadView<ConfigResource> {
   private static final String SECTION_MESSAGE = "message";
+  private static final String KEY_ID = "id";
   private static final String KEY_STARTS_AT = "startsAt";
   private static final String KEY_EXPIRES_AT = "expiresAt";
 
@@ -78,7 +79,8 @@ public class GetMessage implements RestReadView<ConfigResource> {
     }
 
     motd.html = message;
-    motd.id = Integer.toString(motd.html.hashCode());
+    motd.id = cfg.getString(SECTION_MESSAGE, null, KEY_ID);
+    motd.contentId = Integer.toString(motd.html.hashCode());
     return Response.ok(motd);
   }
 }

@@ -20,6 +20,8 @@ import java.util.Date;
 public class MessageOfTheDayInfo {
   /** The ID of the message. */
   public String id;
+  /** Content ID of the message */
+  public String contentId;
   /** The time from which on the message will be displayed. */
   public Date startsAt;
   /** The time from which on the message will not be displayed anymore. */
