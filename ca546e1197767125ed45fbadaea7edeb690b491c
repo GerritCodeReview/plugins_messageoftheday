@@ -52,6 +52,24 @@
       "parentUuid": "04a053bd_481b440d",
       "revId": "ca546e1197767125ed45fbadaea7edeb690b491c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4cb3006_fcab9238",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/SetMessage.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2025-02-20T15:36:06Z",
+      "side": 1,
+      "message": "Btw, this is also documented here: https://gerrit-review.googlesource.com/Documentation/rest-api.html#timestamp",
+      "parentUuid": "ac4a6eef_00b7e676",
+      "revId": "ca546e1197767125ed45fbadaea7edeb690b491c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ],
   "submitRequirementResults": [
