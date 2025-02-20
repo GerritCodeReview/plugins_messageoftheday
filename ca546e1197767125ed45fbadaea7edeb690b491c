@@ -16,6 +16,24 @@
       "message": "I never understood why the REST API used a different timestamp format that the one we put in the config file.",
       "revId": "ca546e1197767125ed45fbadaea7edeb690b491c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04a053bd_481b440d",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/SetMessage.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2025-02-20T01:30:24Z",
+      "side": 1,
+      "message": "I think, I did it mainly to include the timezone, as users from any timezeone should be able to update the message via UI.",
+      "parentUuid": "d1d4ecd8_a02a73a9",
+      "revId": "ca546e1197767125ed45fbadaea7edeb690b491c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ],
   "submitRequirementResults": [
