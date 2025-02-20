@@ -59,6 +59,30 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "247b3e35_fd462d5c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2025-02-20T12:39:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8b61a80_10b41fe0",
+      "range": {
+        "startLine": 14,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 11
+      },
+      "revId": "00e99a6a9d11c386667cb4cf15baa5c557ca99fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87da2079_0ef402d0",
@@ -72,6 +96,24 @@
       "writtenOn": "2025-02-19T15:41:15Z",
       "side": 1,
       "message": "remove this, probably a leftover from some debugging code",
+      "revId": "00e99a6a9d11c386667cb4cf15baa5c557ca99fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c201573_825d06a0",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/GitBasedMessageStore.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2025-02-20T12:39:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87da2079_0ef402d0",
       "revId": "00e99a6a9d11c386667cb4cf15baa5c557ca99fa",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
