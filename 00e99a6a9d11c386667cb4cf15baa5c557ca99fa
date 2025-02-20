@@ -18,6 +18,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1a9a58d_de97fbd9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1003873
+      },
+      "writtenOn": "2025-02-20T10:01:59Z",
+      "side": 1,
+      "message": "Yes, we know about your use case and why NFS is enough for you.\nFor multi-zone/multi-primary I think that Git based storage would work better, because it would build on already existing replication.\n\n\u003e We didn\u0027t have the usecase of \u0027reviewing\u0027 the message.\nI understand that the review is not such a big thing in this case, but using Git based solution would eliminate the need for the plugin\u0027s UI development.",
+      "parentUuid": "28fddbb0_9beb9247",
+      "revId": "00e99a6a9d11c386667cb4cf15baa5c557ca99fa",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87da2079_0ef402d0",
