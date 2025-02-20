@@ -54,11 +54,11 @@ public class FileBasedMessageStore implements MessageStore {
     String htmlFileId = cfg.getString(SECTION_MESSAGE, null, KEY_ID);
     if (Strings.isNullOrEmpty(htmlFileId)) {
       logger.atWarning().log("id not defined, no message will be shown");
-      return ConfiguredMessage.create(cfg, null);
+      return new ConfiguredMessage(cfg, null);
     }
 
     String message = loadMessage(htmlFileId);
-    return ConfiguredMessage.create(cfg, message);
+    return new ConfiguredMessage(cfg, message);
   }
 
   private FileBasedConfig loadConfig() throws MessageStoreException {

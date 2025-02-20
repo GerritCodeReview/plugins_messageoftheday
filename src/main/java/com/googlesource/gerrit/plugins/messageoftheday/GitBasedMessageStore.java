@@ -73,7 +73,7 @@ public class GitBasedMessageStore implements MessageStore {
   @Override
   public ConfiguredMessage getConfiguredMessage() throws MessageStoreException {
     CachedConfig cached = configReader.getConfig();
-    return ConfiguredMessage.create(cached.config(), cached.message());
+    return new ConfiguredMessage(cached.config(), cached.message());
   }
 
   @Override

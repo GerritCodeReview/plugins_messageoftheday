@@ -14,16 +14,6 @@
 
 package com.googlesource.gerrit.plugins.messageoftheday;
 
-import com.google.auto.value.AutoValue;
 import org.eclipse.jgit.lib.Config;
 
-@AutoValue
-public abstract class ConfiguredMessage {
-  public static ConfiguredMessage create(Config cfg, String message) {
-    return new AutoValue_ConfiguredMessage(cfg, message);
-  }
-
-  public abstract Config config();
-
-  public abstract String message();
-}
+public record ConfiguredMessage(Config config, String message) {}
