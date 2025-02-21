@@ -19,9 +19,10 @@ import com.google.gerrit.extensions.restapi.Response;
 import com.google.gerrit.extensions.restapi.RestReadView;
 import com.google.gerrit.server.config.ConfigResource;
 import com.google.inject.Inject;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.Locale;
 import org.eclipse.jgit.lib.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +33,9 @@ public class GetMessage implements RestReadView<ConfigResource> {
   private static final String KEY_STARTS_AT = "startsAt";
   private static final String KEY_EXPIRES_AT = "expiresAt";
 
-  private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyyMMdd:HHmm");
+  private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyyMMdd:HHmm");
+  private static final DateTimeFormatter REST_RESPONSE_FORMAT =
+      DateTimeFormatter.ofPattern("MMM d, yyyy h:mm:ss a", Locale.ENGLISH);
 
   private static final Logger log = LoggerFactory.getLogger(GetMessage.class);
 
@@ -59,21 +62,28 @@ public class GetMessage implements RestReadView<ConfigResource> {
       return Response.none();
     }
 
+    LocalDateTime expiresAt;
     try {
-      motd.expiresAt = DATE_FORMAT.parse(cfg.getString(SECTION_MESSAGE, null, KEY_EXPIRES_AT));
-    } catch (ParseException | NullPointerException e) {
+      expiresAt =
+          LocalDateTime.parse(cfg.getString(SECTION_MESSAGE, null, KEY_EXPIRES_AT), DATE_FORMAT);
+    } catch (DateTimeParseException | NullPointerException e) {
       log.warn("expiresAt not defined, no message will be shown");
       return Response.none();
     }
 
+    LocalDateTime startsAt;
     try {
-      String startsAt = cfg.getString(SECTION_MESSAGE, null, KEY_STARTS_AT);
-      motd.startsAt = Strings.isNullOrEmpty(startsAt) ? new Date() : DATE_FORMAT.parse(startsAt);
-    } catch (ParseException e) {
-      motd.startsAt = new Date();
+      String startsAtValue = cfg.getString(SECTION_MESSAGE, null, KEY_STARTS_AT);
+      startsAt =
+          Strings.isNullOrEmpty(startsAtValue)
+              ? LocalDateTime.now()
+              : LocalDateTime.parse(startsAtValue, DATE_FORMAT);
+    } catch (DateTimeParseException e) {
+      startsAt = LocalDateTime.now();
     }
 
-    if (motd.startsAt.compareTo(new Date()) > 0 || motd.expiresAt.compareTo(new Date()) < 0) {
+    LocalDateTime now = LocalDateTime.now();
+    if (now.isBefore(startsAt) || now.isAfter(expiresAt)) {
       log.debug("Current date/time is outside of the startsAt..expiresAt interval");
       return Response.none();
     }
@@ -81,6 +91,8 @@ public class GetMessage implements RestReadView<ConfigResource> {
     motd.html = message;
     motd.id = cfg.getString(SECTION_MESSAGE, null, KEY_ID);
     motd.contentId = Integer.toString(motd.html.hashCode());
+    motd.startsAt = startsAt.format(REST_RESPONSE_FORMAT);
+    motd.expiresAt = expiresAt.format(REST_RESPONSE_FORMAT);
     return Response.ok(motd);
   }
 }
