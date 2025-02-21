@@ -70,6 +70,24 @@
       "parentUuid": "ac4a6eef_00b7e676",
       "revId": "ca546e1197767125ed45fbadaea7edeb690b491c",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6831f96c_c7e0a9f4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/SetMessage.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1004034
+      },
+      "writtenOn": "2025-02-21T15:25:54Z",
+      "side": 1,
+      "message": "I would prefer to adopt the timezone and format used by Gerrit core which is\nUTC and format `yyyy-mm-dd hh:mm:ss.fffffffff`\neven if it\u0027s a breaking change. \n\nThe UI can use the user\u0027s locale and timezone (which the server doesn\u0027t know, and it may run in a different timezone) to present timestamps in the user\u0027s timezone and locale specific format.",
+      "parentUuid": "c4cb3006_fcab9238",
+      "revId": "ca546e1197767125ed45fbadaea7edeb690b491c",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ],
   "submitRequirementResults": [
