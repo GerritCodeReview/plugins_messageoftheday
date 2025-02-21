@@ -37,6 +37,7 @@ import java.nio.file.Path;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 import org.eclipse.jgit.errors.ConfigInvalidException;
 import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.storage.file.FileBasedConfig;
@@ -47,6 +48,11 @@ public class SetMessage implements RestModifyView<ConfigResource, MessageInput> 
   private static final String SECTION_MESSAGE = "message";
   private static final String KEY_ID = "id";
   private static final String KEY_EXPIRES_AT = "expiresAt";
+
+  private static final String INPUT_DATE_FORMAT_PATTERN = "MM/dd/yyyy, hh:mm a [O][z]";
+  private static final DateTimeFormatter INPUT_DATE_FORMAT =
+      DateTimeFormatter.ofPattern(INPUT_DATE_FORMAT_PATTERN, Locale.ENGLISH);
+
   private final File cfgFile;
   private final Path dataDirPath;
   private final ZoneId serverZoneId;
@@ -103,13 +109,13 @@ public class SetMessage implements RestModifyView<ConfigResource, MessageInput> 
       ZonedDateTime time;
       try {
         time =
-            ZonedDateTime.parse(
-                    input.expiresAt, DateTimeFormatter.ofPattern("MM/dd/yyyy, hh:mm a [O][z]"))
+            ZonedDateTime.parse(input.expiresAt, INPUT_DATE_FORMAT)
                 .withZoneSameInstant(serverZoneId);
       } catch (IllegalArgumentException e) {
         throw new BadRequestException(
-            "Invalid value for expires_at. It must be provided in 'MM/dd/yyyy, hh:mm a z' or"
-                + " 'MM/dd/yyyy, hh:mm a O' format");
+            "Invalid value for expires_at. It must be provided in '"
+                + INPUT_DATE_FORMAT_PATTERN
+                + "' format");
       }
       cfg.setString(
           SECTION_MESSAGE,
