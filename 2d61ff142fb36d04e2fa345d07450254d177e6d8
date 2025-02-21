@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49851df7_a9c197ac",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/GetMessage.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1012457
+      },
+      "writtenOn": "2025-02-21T21:39:25Z",
+      "side": 1,
+      "message": "Will this break the functionality described in below change?\n\n434587: Show banner after dismissal if message is updated | https://gerrit-review.googlesource.com/c/plugins/messageoftheday/+/434587",
+      "revId": "2d61ff142fb36d04e2fa345d07450254d177e6d8",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
