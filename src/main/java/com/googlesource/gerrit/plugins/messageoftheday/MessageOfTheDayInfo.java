@@ -14,16 +14,17 @@
 
 package com.googlesource.gerrit.plugins.messageoftheday;
 
-import java.util.Date;
-
 /** REST API representation of a "message of the day". */
 public class MessageOfTheDayInfo {
   /** The ID of the message. */
   public String id;
+
   /** The time from which on the message will be displayed. */
-  public Date startsAt;
+  public String startsAt;
+
   /** The time from which on the message will not be displayed anymore. */
-  public Date expiresAt;
+  public String expiresAt;
+
   /** The message in HTML-format. */
   public String html;
 }
