@@ -33,7 +33,7 @@ public class GetMessage implements RestReadView<ConfigResource> {
   private static final String KEY_STARTS_AT = "startsAt";
   private static final String KEY_EXPIRES_AT = "expiresAt";
 
-  private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyyMMdd:HHmm");
+  static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyyMMdd:HHmm");
   private static final DateTimeFormatter REST_RESPONSE_FORMAT =
       DateTimeFormatter.ofPattern("MMM d, yyyy h:mm:ss a", Locale.ENGLISH);
 
