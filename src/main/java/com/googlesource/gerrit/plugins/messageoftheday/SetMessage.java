@@ -14,6 +14,8 @@
 
 package com.googlesource.gerrit.plugins.messageoftheday;
 
+import static com.googlesource.gerrit.plugins.messageoftheday.GetMessage.DATE_FORMAT;
+
 import com.google.common.base.Strings;
 import com.google.common.flogger.FluentLogger;
 import com.google.gerrit.extensions.restapi.AuthException;
@@ -104,11 +106,7 @@ public class SetMessage implements RestModifyView<ConfigResource, MessageInput> 
                 + INPUT_DATE_FORMAT_PATTERN
                 + "' format");
       }
-      cfg.setString(
-          SECTION_MESSAGE,
-          null,
-          KEY_EXPIRES_AT,
-          time.format(DateTimeFormatter.ofPattern("yyyyMMdd:HHmm")));
+      cfg.setString(SECTION_MESSAGE, null, KEY_EXPIRES_AT, time.format(DATE_FORMAT));
     } else {
       String expiredAt = cfg.getString(SECTION_MESSAGE, null, KEY_EXPIRES_AT);
       if (expiredAt == null) {
