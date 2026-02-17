@@ -96,9 +96,8 @@ public class FileBasedMessageStore implements MessageStore {
     }
 
     try {
-      configFile.load();
       configFile.save();
-    } catch (IOException | ConfigInvalidException e) {
+    } catch (IOException e) {
       throw new MessageStoreException("Failed to save config", e);
     }
   }
