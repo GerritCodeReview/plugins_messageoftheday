@@ -82,7 +82,7 @@ public class FileBasedMessageStore implements MessageStore {
 
   @Override
   public void saveConfiguredMessage(ConfiguredMessage message) throws MessageStoreException {
-    FileBasedConfig configFile = new FileBasedConfig(message.config(), cfgFile, FS.DETECTED);
+    FileBasedConfig configFile = new FileBasedConfig(cfgFile, FS.DETECTED);
 
     addAll(configFile, message.config());
 
@@ -96,9 +96,8 @@ public class FileBasedMessageStore implements MessageStore {
     }
 
     try {
-      configFile.load();
       configFile.save();
-    } catch (IOException | ConfigInvalidException e) {
+    } catch (IOException e) {
       throw new MessageStoreException("Failed to save config", e);
     }
   }
