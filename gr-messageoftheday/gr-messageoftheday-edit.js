@@ -36,6 +36,7 @@ class GrMessageOfTheDayEdit extends Polymer.Element {
       },
       _expire_after_unit: {
         type: String,
+        value: 'd',
       },
       _can_update: {
         type: Boolean,
@@ -103,13 +104,29 @@ class GrMessageOfTheDayEdit extends Polymer.Element {
   }
 
   _openDialog() {
-    this.$.message_dialog_overlay.show();
+    if (!this.$.message_dialog_overlay.open) {
+      this.$.message_dialog_overlay.showModal();
+    }
     this.$.message_dialog.classList.toggle('invisible', false);
   }
 
   _closeDialog() {
     this.$.message_dialog.classList.toggle('invisible', true);
     this.$.message_dialog_overlay.close();
+  }
+
+  _onMessageInput(e) {
+    this._message = e.detail.value;
+  }
+
+  _onExpireAfterValueInput(e) {
+    const target = e.target;
+    this._expire_after_value = target.value ?? '';
+  }
+
+  _onExpireAfterUnitChange(e) {
+    const sel = e.target;
+    this._expire_after_unit = sel.value ?? 'd';
   }
 
   _messageChanged(newMessage) {
