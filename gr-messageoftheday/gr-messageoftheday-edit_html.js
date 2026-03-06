@@ -16,7 +16,7 @@
  */
 
 export const htmlTemplate = Polymer.html`
-  <style include="gr-modal-styles">
+  <style include="gr-modal-styles gr-material-styles">
     input, select {
       background-color: var(--select-background-color);
       color: var(--primary-text-color);
@@ -25,7 +25,7 @@ export const htmlTemplate = Polymer.html`
       padding: var(--spacing-s);
       font: inherit;
     }
-    iron-autogrow-textarea, #messagePreview {
+    gr-autogrow-textarea, #messagePreview {
       background-color: var(--view-background-color);
       color: var(--primary-text-color);
       font: inherit;
@@ -35,7 +35,7 @@ export const htmlTemplate = Polymer.html`
       border-radius: var(--border-radius);
       box-sizing: border-box;
     }
-    iron-autogrow-textarea:focus {
+    gr-autogrow-textarea:focus-within {
       border: 2px solid var(--input-focus-border-color);
     }
     #messagePreview {
@@ -45,9 +45,11 @@ export const htmlTemplate = Polymer.html`
     section {
       margin-bottom: 1em;
     }
-    paper-button {
-      elevation: 0;
-      margin-top: var(--spacing-s);
+    md-icon-button {
+      --md-sys-color-on-surface-variant: var(--header-text-color);
+    }
+    md-icon[filled] {
+      font-variation-settings: 'FILL' 1;
     }
     gr-icon {
       --gr-button-text-color: var(--header-text-color);
@@ -70,9 +72,9 @@ export const htmlTemplate = Polymer.html`
 
   </style>
   <template is="dom-if" if="[[_can_update]]">
-    <paper-button class="icon-button" on-click="_openDialog">
-      <gr-icon icon="campaign" filled/>
-    </paper-button>
+    <md-icon-button class="icon-button" on-click="_openDialog">
+      <md-icon filled>campaign</md-icon>
+    </md-icon-button>
   </template>
   <dialog id="message_dialog_overlay" tabindex="-1">
     <gr-dialog id="message_dialog" confirm-label="Save Message"
@@ -83,33 +85,42 @@ export const htmlTemplate = Polymer.html`
           <span class="title">Expire After:</span>
           <span class="value">
             <div style="display: flex; align-items: center; gap: 5px;">
-              <iron-input
-                bind-value="{{_expire_after_value}}"
-                placeholder="Enter Number">
-                <input
-                  is="iron-input"
-                  placeholder="Enter Number"
-                  bind-value="{{_expire_after_value}}"
-                />
-              </iron-input>
-              <gr-select bind-value="{{_expire_after_unit}}">
-                <select>
-                  <option value="m">minutes</option>
-                  <option value="h">hours</option>
-                  <option value="d">days</option>
-                  <option value="w">weeks</option>
-                </select>
-              </gr-select>
+              <md-outlined-text-field
+                id="expireAfterInput"
+                class="showBlueFocusBorder"
+                placeholder="Enter Number"
+                value="[[_expire_after_value]]"
+                on-input="_onExpireAfterValueInput">
+              </md-outlined-text-field>
+              <md-outlined-select
+                id="expireAfterUnitSelect"
+                value="[[_expire_after_unit]]"
+                on-change="_onExpireAfterUnitChange">
+                <md-select-option value="m">
+                  <div slot="headline">minutes</div>
+                </md-select-option>
+                <md-select-option value="h">
+                  <div slot="headline">hours</div>
+                </md-select-option>
+                <md-select-option value="d">
+                  <div slot="headline">days</div>
+                </md-select-option>
+                <md-select-option value="w">
+                  <div slot="headline">weeks</div>
+                </md-select-option>
+              </md-outlined-select>
             </div>
           </span>
         </section>
         <section>
           <span class="title">Message:</span>
           <span class="value">
-            <iron-autogrow-textarea
-                on-keypress="_onKeyPressListener" class="text_area"
+            <gr-autogrow-textarea
+                class="text_area"
                 placeholder="Enter Message"
-                autocomplete="off" bind-value="{{_message}}"/>
+                autocomplete="off"
+                value="[[_message]]"
+                on-input="_onMessageInput"/>
           </span>
         </section>
         <section>
