@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbd978b3_86385770",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2026-03-17T21:43:41Z",
+      "side": 1,
+      "message": "Also see Yash\u0027s change which I think is trying to fix the same (or very similar) problem: 552921: Fix config file save logic in FileBasedMessageStore | https://gerrit-review.googlesource.com/c/plugins/messageoftheday/+/552921",
+      "revId": "a51d307d4af514a39a504ea06e1598ba7f8cbbe7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
