@@ -16,6 +16,24 @@
       "message": "Also see Yash\u0027s change which I think is trying to fix the same (or very similar) problem: 552921: Fix config file save logic in FileBasedMessageStore | https://gerrit-review.googlesource.com/c/plugins/messageoftheday/+/552921",
       "revId": "a51d307d4af514a39a504ea06e1598ba7f8cbbe7",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7796fa54_d7193ae1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4665459
+      },
+      "writtenOn": "2026-03-19T23:55:46Z",
+      "side": 1,
+      "message": "Thanks. I should configure my watched projects :(",
+      "parentUuid": "dbd978b3_86385770",
+      "revId": "a51d307d4af514a39a504ea06e1598ba7f8cbbe7",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
