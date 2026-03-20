@@ -16,6 +16,24 @@
       "message": "Do you know which stable version of Gerrit last worked with the tip? We should create a branch for whichever version that is.",
       "revId": "8f66ad7280f406315d7abf8769d48a287cd20775",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5d72dc2_c68a8948",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4665459
+      },
+      "writtenOn": "2026-03-20T00:44:42Z",
+      "side": 1,
+      "message": "Yeah, good point. Let me test that and create a branch.",
+      "parentUuid": "40c2b90a_e4824ebf",
+      "revId": "8f66ad7280f406315d7abf8769d48a287cd20775",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
