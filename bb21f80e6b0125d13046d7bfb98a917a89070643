@@ -22,6 +22,30 @@
       },
       "revId": "bb21f80e6b0125d13046d7bfb98a917a89070643",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d50af7f_6eb851f4",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/FileBasedMessageStore.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2026-03-23T18:01:45Z",
+      "side": 0,
+      "message": "We already load the config at the beginning of the caller method, so I don’t think it’s needed here.",
+      "parentUuid": "6f265084_abb3bc38",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 24
+      },
+      "revId": "bb21f80e6b0125d13046d7bfb98a917a89070643",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }

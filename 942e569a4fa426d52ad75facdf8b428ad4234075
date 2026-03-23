@@ -46,6 +46,30 @@
       },
       "revId": "942e569a4fa426d52ad75facdf8b428ad4234075",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e8639d8_ac532534",
+        "filename": "src/main/java/com/googlesource/gerrit/plugins/messageoftheday/FileBasedMessageStore.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2026-03-23T18:01:45Z",
+      "side": 1,
+      "message": "Yeah, I thought since the constructor on line 85 takes `message.config()` as input, it\u0027d use that config to populate the `configFile` with incoming changes.\n\nIt turned out that\u0027s not the case. Removed the misleading parameter.",
+      "parentUuid": "2ecbfc14_a3d2ea07",
+      "range": {
+        "startLine": 87,
+        "startChar": 4,
+        "endLine": 87,
+        "endChar": 41
+      },
+      "revId": "942e569a4fa426d52ad75facdf8b428ad4234075",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
