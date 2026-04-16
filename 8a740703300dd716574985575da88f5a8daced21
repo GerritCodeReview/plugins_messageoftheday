@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9875ef0a_d4f08d9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2026-04-16T05:48:31Z",
+      "side": 1,
+      "message": "The styling seems very different from other Gerrit dialogs, such as createFollowUpDialog, which wasn’t the case earlier. It might be worth looking into.",
+      "revId": "8a740703300dd716574985575da88f5a8daced21",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e056a500_2412c4f5",
         "filename": "gr-messageoftheday/gr-messageoftheday-edit.js",
         "patchSetId": 2
