@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e056a500_2412c4f5",
+        "filename": "gr-messageoftheday/gr-messageoftheday-edit.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2026-04-16T05:39:45Z",
+      "side": 1,
+      "message": "AI review - nit:\n\nGerrit core exclusively uses showModal() for all its dialogs. Using .show() means:\n  - No backdrop (the dialog::backdrop styles from gr-modal-styles won\u0027t apply)\n  - Dialog is not in the top layer — users can interact with elements behind it\n  - No focus trapping\n\nFix: Change .show() to .showModal().",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 107,
+        "endChar": 41
+      },
+      "revId": "8a740703300dd716574985575da88f5a8daced21",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
