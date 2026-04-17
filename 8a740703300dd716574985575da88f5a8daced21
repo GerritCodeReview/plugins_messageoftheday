@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "69e8e134_d4c65637",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4665459
+      },
+      "writtenOn": "2026-04-17T22:16:15Z",
+      "side": 1,
+      "message": "The current dialog styling is similar to the cherry-pick or rebase dialog, i.e, the field description appears above the field. I don’t quite like the \u0027follow-up\u0027 dialog, where the description is aligned to the left of the field. Shall we leave the dialog as-is for now? We can always make improvements in follow-up changes as needed. The UI functionality is broken currently on v3.13+, so, the goal of this change was to fix that primarily.",
+      "parentUuid": "9875ef0a_d4f08d9c",
+      "revId": "8a740703300dd716574985575da88f5a8daced21",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e056a500_2412c4f5",
         "filename": "gr-messageoftheday/gr-messageoftheday-edit.js",
         "patchSetId": 2
@@ -31,6 +49,30 @@
       "writtenOn": "2026-04-16T05:39:45Z",
       "side": 1,
       "message": "AI review - nit:\n\nGerrit core exclusively uses showModal() for all its dialogs. Using .show() means:\n  - No backdrop (the dialog::backdrop styles from gr-modal-styles won\u0027t apply)\n  - Dialog is not in the top layer — users can interact with elements behind it\n  - No focus trapping\n\nFix: Change .show() to .showModal().",
+      "range": {
+        "startLine": 107,
+        "startChar": 4,
+        "endLine": 107,
+        "endChar": 41
+      },
+      "revId": "8a740703300dd716574985575da88f5a8daced21",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ead60201_9f361e86",
+        "filename": "gr-messageoftheday/gr-messageoftheday-edit.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 4665459
+      },
+      "writtenOn": "2026-04-17T22:16:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e056a500_2412c4f5",
       "range": {
         "startLine": 107,
         "startChar": 4,
