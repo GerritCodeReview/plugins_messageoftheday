@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "54d62a17_e0567aa0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2026-04-20T14:12:06Z",
+      "side": 1,
+      "message": "I was actually referring to the overall appearance of the dialog box. Other dialog boxes like \u0027follow-up\u0027, \u0027cherry-pick\u0027, or \u0027rebase\u0027 do not have an explicit border, feature rounded corners, and have a shadow. In contrast, the \u0027set-banner-message\u0027 dialog box lacks these styles and feels very different.\n\n\u003e Shall we leave the dialog as-is for now? We can always make improvements in follow-up changes as needed. The UI functionality is broken currently on v3.13+, so, the goal of this change was to fix that primarily.\n\nI\u0027m fine with that.",
+      "parentUuid": "69e8e134_d4c65637",
+      "revId": "8a740703300dd716574985575da88f5a8daced21",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e056a500_2412c4f5",
         "filename": "gr-messageoftheday/gr-messageoftheday-edit.js",
         "patchSetId": 2
