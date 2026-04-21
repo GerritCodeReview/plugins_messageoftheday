@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d54bb15f_b43c3f71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4665459
+      },
+      "writtenOn": "2026-04-21T20:00:42Z",
+      "side": 1,
+      "message": "I am seeing shadows, rounded corners and no border. Looks similar to rebase dialog. See: https://imgur.com/a/7upYavm",
+      "parentUuid": "54d62a17_e0567aa0",
+      "revId": "8a740703300dd716574985575da88f5a8daced21",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e056a500_2412c4f5",
         "filename": "gr-messageoftheday/gr-messageoftheday-edit.js",
         "patchSetId": 2
