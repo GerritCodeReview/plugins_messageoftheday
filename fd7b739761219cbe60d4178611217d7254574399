@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d551d0b1_74df41e5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1002666
+      },
+      "writtenOn": "2026-04-21T20:57:50Z",
+      "side": 1,
+      "message": "Looks like UI edit/apply added ` US` here. Do you care?",
+      "revId": "fd7b739761219cbe60d4178611217d7254574399",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
