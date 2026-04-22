@@ -72,6 +72,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "864f1d45_8a200fb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1152670
+      },
+      "writtenOn": "2026-04-22T07:41:01Z",
+      "side": 1,
+      "message": "Got it, my local site was using an older version of gerrit war (`3.13.0-rc0-641-gda34f08714`). Updating it to `master` fixed the issue. Also, tested with `stable-3.13` branch and it works fine. Thanks.",
+      "parentUuid": "d54bb15f_b43c3f71",
+      "revId": "8a740703300dd716574985575da88f5a8daced21",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e056a500_2412c4f5",
