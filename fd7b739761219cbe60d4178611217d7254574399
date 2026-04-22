@@ -16,6 +16,24 @@
       "message": "Looks like UI edit/apply added ` US` here. Do you care?",
       "revId": "fd7b739761219cbe60d4178611217d7254574399",
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c470666_3aa207ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 4665459
+      },
+      "writtenOn": "2026-04-22T04:20:57Z",
+      "side": 1,
+      "message": "No, thats fine. It probably used the \u0027full name\u0027 I have in my account, which I cant change for some reason.",
+      "parentUuid": "d551d0b1_74df41e5",
+      "revId": "fd7b739761219cbe60d4178611217d7254574399",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     }
   ]
 }
