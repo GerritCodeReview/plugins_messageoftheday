@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd333c65_8115180f",
+        "filename": "web/gr-messageoftheday-banner_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2026-06-18T13:13:48Z",
+      "side": 1,
+      "message": "Remove whitespace.",
+      "revId": "2d3544a938ca7df820447eded9c965ae84a19205",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7c085e2_2d41b1ca",
+        "filename": "web/gr-messageoftheday-edit.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2026-06-18T13:13:48Z",
+      "side": 1,
+      "message": "Is this replaced with html or plain text? Preferably this should maybe just be \u003cdiv id\u003d\"messagePreview\" readonly\u003e${this.message ?? \u0027\u0027}\u003c/div\u003e if so.\n\nOr could you only get it to work with innerHTML?",
+      "revId": "2d3544a938ca7df820447eded9c965ae84a19205",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e4e06a6_f6bf3aa8",
+        "filename": "web/gr-messageoftheday-edit_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2026-06-18T13:13:48Z",
+      "side": 1,
+      "message": "Drop whitespace and below.",
+      "revId": "2d3544a938ca7df820447eded9c965ae84a19205",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    }
+  ]
+}
