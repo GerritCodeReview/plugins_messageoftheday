@@ -18,14 +18,8 @@ gerrit_plugin(
         "Implementation-Title: Plugin messageoftheday",
         "Implementation-URL: https://gerrit-review.googlesource.com/#/admin/projects/plugins/messageoftheday",
     ],
-    resource_jars = [":gr-messageoftheday"],
+    resource_jars = ["//plugins/messageoftheday/web:messageoftheday"],
     resources = glob(["src/main/resources/**/*"]),
-)
-
-gerrit_js_bundle(
-    name = "gr-messageoftheday",
-    srcs = glob(["gr-messageoftheday/*.js"]),
-    entry_point = "gr-messageoftheday/plugin.js",
 )
 
 junit_tests(
