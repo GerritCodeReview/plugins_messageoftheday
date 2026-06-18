@@ -71,6 +71,24 @@
       "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f59e0f34_8ffbd264",
+        "filename": "web/gr-messageoftheday-edit.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1029953
+      },
+      "writtenOn": "2026-06-18T17:08:21Z",
+      "side": 1,
+      "message": "Oh yeh it won\u0027t work html. Closing as resolved.",
+      "parentUuid": "4aa1a5c8_b0f75491",
+      "revId": "2d3544a938ca7df820447eded9c965ae84a19205",
+      "serverId": "173816e5-2b9a-37c3-8a2e-48639d4f1153"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e4e06a6_f6bf3aa8",
