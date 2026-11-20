@@ -25,9 +25,11 @@ window.Gerrit = {
     form: css``,
     material: css``,
     menuPage: css``,
+    shared: css``,
     spinner: css``,
     subPage: css``,
     table: css``,
     modal: css``,
+    changeViewIntegration: css``,
   },
 };
